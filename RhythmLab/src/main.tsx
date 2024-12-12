@@ -10,7 +10,7 @@ import './App.css'
 
 const router = createBrowserRouter(
   [
-    { path: '/home', element: < PageHome />, },
+    { path: '/', element: < PageHome />, },
     {path: '/metronome', element: <PageMetronome /> },
     {path: '/practice', element: <PagePractice/>},
     {path: '/theory', element: <PageTheory/> }
