@@ -7,6 +7,7 @@ export default function PageHome()
         <div className='container' id='container'>
             <div className='header'>
                 <div><h1>Hello there! i am page home</h1></div>
+                <img src='../.././public/Favicon.png' className='favicon'></img>
             </div>
             
             <div className='row-item-container'>
