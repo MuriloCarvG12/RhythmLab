@@ -6,7 +6,7 @@ import PageMetronome from './pages/pageMetronome';
 import PagePractice from './pages/pagePractice';
 import PageTheory from './pages/pageTheory';
 
-import './App.css'
+import './index.css'
 
 const router = createBrowserRouter(
   [
