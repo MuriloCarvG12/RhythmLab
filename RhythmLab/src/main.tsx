@@ -6,11 +6,11 @@ import PageMetronome from './pages/pageMetronome';
 import PagePractice from './pages/pagePractice';
 import PageTheory from './pages/pageTheory';
 
-import './App.css'
+import './index.css'
 
 const router = createBrowserRouter(
   [
-    { path: '/home', element: < PageHome />, },
+    { path: '/', element: < PageHome />, },
     {path: '/metronome', element: <PageMetronome /> },
     {path: '/practice', element: <PagePractice/>},
     {path: '/theory', element: <PageTheory/> }
