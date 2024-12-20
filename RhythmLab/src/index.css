@@ -51,22 +51,48 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
   position: relative;
 }
 
+.Card-Body
+{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Card-Body :hover
+{
+  display: flex;
+  flex-direction: column;
+  transform: scale(1.05);
+  overflow: hidden
+}
+
+.button-head
+{
+    background-color: aqua;
+    width:100%;
+    height: 40px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+} 
+
 .button
 {
   height: 500px;
   width: 300px;
   background-color: red;
   cursor: pointer;
- 
 }
 
-.button:hover
+.button-bottom
 {
-  transform: scale(1.05);
-  background-color: rgb(243, 101, 101);
-  cursor: pointer;
-  
+  background-color: aqua;
+  width:100%;
+  height: 40px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
+
+
 
 .header
 {

@@ -7,6 +7,14 @@ import { Link } from 'react-router'
 export default function Card_button({url, image}:any)
 {
     return(
-        <Link to={url}><button className='button' style={{backgroundImage: `url("${image}")`}}> </button></Link>
+        <>
+            <div className='Card-Body'> 
+                    <div>
+                    <div className='button-head'></div>
+                    <Link to={url}><button className='button' style={{backgroundImage: `url("${image}")`}}> </button></Link>
+                    <div className='button-bottom'></div>
+                    </div>
+            </div>
+        </>
     )
 }
