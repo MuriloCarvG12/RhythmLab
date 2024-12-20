@@ -1,9 +1,16 @@
 import '.././index.css'
-import { Link } from 'react-router'
+import Card_button from '../components/card'
 
 export default function PageHome()
 {
+     //TODO these images are super terrible, please find better ones later...
+
+    const metronome = '/metronome'
+    const practice = '/practice'
+    const theory = '/theory'
+    
     return (
+        
         
         <div className='container' id='container'>
             <div className='header'>
@@ -12,9 +19,24 @@ export default function PageHome()
             </div>
             
             <div className='row-item-container'>
-                <Link to='/metronome'><button className='button'> </button></Link>
-                <Link to='/practice'><button className='button'> </button></Link>
-                <Link to='/theory'><button className='button'> </button></Link>
+
+                
+
+                <Card_button 
+                            url={metronome}
+                            image={"../.././public/metronome.jpg"}
+                 />
+
+                <Card_button 
+                            url={practice}
+                            image={"../.././public/practice.jpg"}
+                 />
+
+                <Card_button 
+                            url={theory}
+                            image={"../.././public/music_theory.jpg"}
+                 />
+
             </div>
 
             <footer><div className='footer'> </div></footer>
