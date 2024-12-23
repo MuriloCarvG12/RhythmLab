@@ -23,16 +23,19 @@ export default function PageHome()
                 
 
                 <Card_button 
+                            page_name ={'Metronome'}
                             url={metronome}
                             image={"../.././public/metronome.jpg"}
                  />
 
                 <Card_button 
+                            page_name ={'Practice'}
                             url={practice}
                             image={"../.././public/practice.jpg"}
                  />
 
                 <Card_button 
+                            page_name ={'Theory'}
                             url={theory}
                             image={"../.././public/music_theory.jpg"}
                  />
