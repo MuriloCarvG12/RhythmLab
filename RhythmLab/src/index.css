@@ -36,6 +36,10 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
   
 }
 
+.body
+{
+  background-color: #cacccb;
+}
 .row-item-container
 {
   display: flex;
