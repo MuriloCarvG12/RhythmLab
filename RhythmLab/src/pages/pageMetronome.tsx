@@ -3,11 +3,36 @@ import { useState } from 'react'
 
 export default function PageMetronome()
 {
-    const [time, set_time] = useState(0)
+    const [time, set_time] = useState(40)
+    const [toggle_button, set_toggle_button] = useState(0);
+    let intervalId:any = null;
 
     const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
       set_time(Number(event.target.value));
     };
+
+    function metronome(time: number)
+    {
+        if (!intervalId) {    
+         return intervalId = setInterval(() => {console.log('Tick')}, 1000)
+        }
+        
+            
+    }
+
+    function startTimer()
+    {   
+        
+        set_toggle_button(0);
+    }
+
+    function stopTimer()
+    {
+        set_toggle_button(1);
+        clearInterval(intervalId);
+        return intervalId = null;
+        
+    }
 
     return (
         <>
@@ -50,6 +75,8 @@ export default function PageMetronome()
                 </div>               
             </div>
 
+
+            {/** Div para agrupar o metronomo e o slider para o usuario escolher a bpm que deseja */}
             <div style=
             {{
               display: 'flex',
@@ -62,7 +89,7 @@ export default function PageMetronome()
             >
 
                   <h1> or find your own Time!</h1>
-                  <input type='range' min={0} max={360} value={time} onChange={handleSliderChange} />
+                  <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
             </div>
             
 
@@ -72,7 +99,11 @@ export default function PageMetronome()
               </div>
 
               <div>
-                  <button>Start</button>
+                {
+                    //<button onClick={startTimer(time)}>Start</button>
+                    toggle_button == 1 ? <button onClick={() => {startTimer(); metronome(time)}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
+                }
+                 
               </div>
 
           </div>
