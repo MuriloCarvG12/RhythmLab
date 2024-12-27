@@ -20,6 +20,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} /> /** allows us to put the entry point of our app to the routes from router */
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

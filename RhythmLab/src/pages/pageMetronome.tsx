@@ -89,35 +89,38 @@ export default function PageMetronome()
 
 
             {/** Div para agrupar o metronomo e o slider para o usuario escolher a bpm que deseja */}
-            <div style=
-            {{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-              marginBottom: 40
 
-            }}
-            >
+            <div className='metronome-body'>
+                    <div style=
+                        {{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        marginBottom: 40
 
-                  <h1> or find your own Time!</h1>
-                  <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
-            </div>
-            
+                        }}
+                        >
 
-          <div className='page_body'>
-              <h1 className='Title-Font'> Current Time = {time} </h1>
-              <div style={{backgroundColor: 'red', width: 300, height: 300}}>
-              </div>
+                            <h1> or find your own Time!</h1>
+                            <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
+                    </div>
+                        
 
-              <div>
-                {
-                    //<button onClick={startTimer(time)}>Start</button>
-                    toggle_button == 1 ? <button onClick={() => {startTimer()}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
-                }
-                 
-              </div>
+                    <div className='page_body'>
+                        <h1 className='Title-Font'> Current Time = {time} </h1>
+                        <div style={{backgroundColor: 'red', width: 300, height: 300}}>
+                     </div>
 
+                        <div style={{display: 'flex',  justifyContent: 'center', marginTop: 40, marginBottom: 40}}>
+                            {
+                                //<button onClick={startTimer(time)}>Start</button>
+                                toggle_button == 1 ? <button onClick={() => {startTimer()}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
+                            }
+                            
+                        </div>
+
+                    </div>
           </div>
 
 
