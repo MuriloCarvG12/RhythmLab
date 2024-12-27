@@ -1,5 +1,6 @@
 import '.././index.css'
 import { useState } from 'react'
+import Button from '../components/button';
 
 export default function PageMetronome()
 {
@@ -11,21 +12,15 @@ export default function PageMetronome()
       set_time(Number(event.target.value));
     };
 
-    
 
     function metronome(time: number)
-    {
-        
-        console.log(time)
+    {      
         if (!intervalId) {
             const id = setInterval(() => {
                 console.log('Tick');
             }, time * 1000); // converte o tempo fornecido para milisegundos
             setIntervalId(id);
-        }
-        
-        
-            
+        }             
     }
 
     function startTimer()
@@ -90,6 +85,30 @@ export default function PageMetronome()
 
             {/** Div para agrupar o metronomo e o slider para o usuario escolher a bpm que deseja */}
 
+            <div className='metronome-head' 
+            style={
+                {
+                display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        background: '#F0544F',
+                        width: '40%',
+                        height: '80%',
+                        borderTopRightRadius: 60,
+                        borderTopLeftRadius: 60,
+                        borderInlineWidth: 3,
+                        borderInlineColor: '#F0544F',
+                        borderInlineStyle: 'solid',
+                        
+            }
+            }>
+
+            <h1> or find your own Time!</h1>
+            <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
+
+            </div>
+
             <div className='metronome-body'>
                     <div style=
                         {{
@@ -97,34 +116,43 @@ export default function PageMetronome()
                         justifyContent: 'center',
                         alignItems: 'center',
                         flexDirection: 'column',
-                        marginBottom: 40
-
+                        marginBottom: 40,
+                        
                         }}
                         >
 
-                            <h1> or find your own Time!</h1>
-                            <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
+                            
+                            <h1 className='Title-Font'> Current Time = {time} </h1>
+                            <div style={{backgroundColor: 'red', width: 300, height: 300}}>
                     </div>
                         
 
-                    <div className='page_body'>
-                        <h1 className='Title-Font'> Current Time = {time} </h1>
-                        <div style={{backgroundColor: 'red', width: 300, height: 300}}>
-                     </div>
+                    
+                        
+                     
 
                         <div style={{display: 'flex',  justifyContent: 'center', marginTop: 40, marginBottom: 40}}>
                             {
                                 //<button onClick={startTimer(time)}>Start</button>
-                                toggle_button == 1 ? <button onClick={() => {startTimer()}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
+                                toggle_button == 1 
+                                ? 
+
+                                <Button
+                                handleClick ={startTimer}
+                                text={"Start"}
+                                />
+                                : 
+
+                                <Button
+                                handleClick ={stopTimer}
+                                text={"Stop"}
+                                />
                             }
                             
                         </div>
 
                     </div>
           </div>
-
-
-
           </div>
         </>
       )
