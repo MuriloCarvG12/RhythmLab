@@ -5,32 +5,44 @@ export default function PageMetronome()
 {
     const [time, set_time] = useState(40)
     const [toggle_button, set_toggle_button] = useState(0);
-    let intervalId:any = null;
-
+    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+    
     const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
       set_time(Number(event.target.value));
     };
 
+    
+
     function metronome(time: number)
     {
-        if (!intervalId) {    
-         return intervalId = setInterval(() => {console.log('Tick')}, 1000)
+        
+        console.log(time)
+        if (!intervalId) {
+            const id = setInterval(() => {
+                console.log('Tick');
+            }, time * 1000); // converte o tempo fornecido para milisegundos
+            setIntervalId(id);
         }
+        
         
             
     }
 
     function startTimer()
     {   
-        
+        const time_metronome = 60 / time; {/** para encontrar o tempo de intervalo devemos dividir 60 segundos (1 minuto) pela bpm o resultado entao sera passado para funcao metronome */}
         set_toggle_button(0);
+        metronome(time_metronome)
+        
     }
 
     function stopTimer()
     {
         set_toggle_button(1);
-        clearInterval(intervalId);
-        return intervalId = null;
+        if (intervalId) {
+            clearInterval(intervalId);
+            setIntervalId(null);
+        }
         
     }
 
@@ -101,7 +113,7 @@ export default function PageMetronome()
               <div>
                 {
                     //<button onClick={startTimer(time)}>Start</button>
-                    toggle_button == 1 ? <button onClick={() => {startTimer(); metronome(time)}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
+                    toggle_button == 1 ? <button onClick={() => {startTimer()}}>Start</button> :  <button onClick={() => {stopTimer()}}>Stop</button>
                 }
                  
               </div>
