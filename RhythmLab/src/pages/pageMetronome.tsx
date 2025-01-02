@@ -7,6 +7,7 @@ export default function PageMetronome()
     const [time, set_time] = useState(40)
     const [toggle_button, set_toggle_button] = useState(0);
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+    const [toggle_visual, set_toggle_visual] = useState(false)
     
     const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
       set_time(Number(event.target.value));
@@ -16,8 +17,10 @@ export default function PageMetronome()
     function metronome(time: number)
     {      
         if (!intervalId) {
+            const audio = new Audio("../.././public/sounds/metronome.mp3");
             const id = setInterval(() => {
-                console.log('Tick');
+                audio.play()
+                set_toggle_visual((toggle_visual) => !toggle_visual)
             }, time * 1000); // converte o tempo fornecido para milisegundos
             setIntervalId(id);
         }             
@@ -123,8 +126,16 @@ export default function PageMetronome()
 
                             
                             <h1 className='Title-Font'> Current Time = {time} </h1>
-                            <div style={{backgroundColor: 'red', width: 300, height: 300}}>
-                    </div>
+                           
+                            <div style={{ position: 'relative', width: 400, height: 400}}>
+                                    <div id="Metronome-image" style={{ backgroundColor: toggle_visual ? 'red' : 'blue', width: 200, height: 200,position: 'absolute',  top: '25%', left: '25%',}}></div>
+                                    
+                                    { toggle_visual && <div id="Metronome-animation" style={{ backgroundColor: 'aqua', width: 400, height: 400 }}></div> }
+                                    
+                            </div>
+                                                    
+
+                   
                         
 
                     
