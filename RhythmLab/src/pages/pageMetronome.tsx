@@ -128,9 +128,9 @@ export default function PageMetronome()
                             <h1 className='Title-Font'> Current Time = {time} </h1>
                            
                             <div style={{ position: 'relative', width: 400, height: 400}}>
-                                    <div id="Metronome-image" style={{ backgroundColor: toggle_visual ? 'red' : 'blue', width: 200, height: 200,position: 'absolute',  top: '25%', left: '25%',}}></div>
+                                    <div id="Metronome-image" style={{ backgroundColor: 'blue', width: 200, height: 200,position: 'absolute',  top: '25%', left: '25%',}}></div>
                                     
-                                    { toggle_visual && <div id="Metronome-animation" style={{ backgroundColor: 'aqua', width: 400, height: 400 }}></div> }
+                                    { toggle_visual ? <></>  : <div id="Metronome-animation" style={{ backgroundColor: 'aqua', width: 400, height: 400 }}></div> }
                                     
                             </div>
                                                     
