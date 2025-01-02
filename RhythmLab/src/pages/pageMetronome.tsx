@@ -16,8 +16,9 @@ export default function PageMetronome()
     function metronome(time: number)
     {      
         if (!intervalId) {
+            const audio = new Audio("../.././public/sounds/metronome.mp3");
             const id = setInterval(() => {
-                console.log('Tick');
+                audio.play()
             }, time * 1000); // converte o tempo fornecido para milisegundos
             setIntervalId(id);
         }             
