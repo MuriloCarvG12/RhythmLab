@@ -2,12 +2,13 @@ import '.././index.css'
 import { useState } from 'react'
 import Button from '../components/button';
 
+
 export default function PageMetronome()
 {
     const [time, set_time] = useState(40)
     const [toggle_button, set_toggle_button] = useState(0);
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
-    const [toggle_visual, set_toggle_visual] = useState(false)
+    const [toggle_visual, set_toggle_visual] = useState(true)
     
     const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
       set_time(Number(event.target.value));
@@ -36,6 +37,7 @@ export default function PageMetronome()
 
     function stopTimer()
     {
+        set_toggle_visual(true)
         set_toggle_button(1);
         if (intervalId) {
             clearInterval(intervalId);
@@ -128,9 +130,12 @@ export default function PageMetronome()
                             <h1 className='Title-Font'> Current Time = {time} </h1>
                            
                             <div style={{ position: 'relative', width: 400, height: 400}}>
-                                    <div id="Metronome-image" style={{ backgroundColor: toggle_visual ? 'red' : 'blue', width: 200, height: 200,position: 'absolute',  top: '25%', left: '25%',}}></div>
+                                    <div id="Metronome-image" style={{ 
+                                        backgroundImage: "url(../.././public/metronome.png)", backgroundSize: "contain", width: 100, height: 100, position: 'absolute',  top: '38%', left: '38%', zIndex: 1 , }}></div>
                                     
-                                    { toggle_visual && <div id="Metronome-animation" style={{ backgroundColor: 'aqua', width: 400, height: 400 }}></div> }
+                                    { toggle_visual ? <></>  : <div id="Metronome-animation" 
+                                    style={{width: 400, height: 400, zIndex: 0, position: 'absolute', top: 0,
+                                        left: 0,}}></div>}
                                     
                             </div>
                                                     
