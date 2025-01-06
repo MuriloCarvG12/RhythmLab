@@ -229,3 +229,18 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
     border-width: 15px;   
 }
 }
+
+/** pagina Practice **/
+
+.Sheet_Space
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #F0544F;
+  height: 60vh;
+  justify-content: space-evenly;
+}
