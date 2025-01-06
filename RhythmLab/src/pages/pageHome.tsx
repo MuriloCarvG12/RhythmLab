@@ -53,19 +53,19 @@ export default function PageHome()
                 <Card_button 
                             page_name ={'Metronome'}
                             url={metronome}
-                            image={"../.././public/metronome.jpg"}
+                            image={"../.././public/Hmetronome.jpeg"}
                  />
 
                 <Card_button 
                             page_name ={'Practice'}
                             url={practice}
-                            image={"../.././public/practice.jpg"}
+                            image={"../.././public/Hdumbbell.jpeg"}
                  />
 
                 <Card_button 
                             page_name ={'Theory'}
                             url={theory}
-                            image={"../.././public/music_theory.jpg"}
+                            image={"../.././public/Hmusic_theory.jpeg"}
                  />
 
             </div>

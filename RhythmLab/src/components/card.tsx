@@ -16,7 +16,7 @@ export default function Card_button({url, image, page_name}:CardButtonProps)
             <div className='Card-Body'> 
                     <div>
                     <div className='button-head'> <h1 className='Titles-font'> {page_name} </h1></div>
-                        <Link to={url}><button className='button' style={{backgroundImage: `url("${image}")`}}> </button></Link>
+                        <Link to={url}><button className='button' style={{backgroundImage: `url("${image}")`, backgroundSize: "cover", backgroundPosition: "center"}}> </button></Link>
                     <div className='button-bottom'></div>
                     </div>
             </div>
