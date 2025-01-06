@@ -160,5 +160,72 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
 .footer
 {
   background-color: blue;
+}
+
+/** page metronme **/
+
+.metronome-body{ 
+  width: 40%; 
+  height: 80%; 
+  background-color: #535353;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #F0544F;
+  border-bottom-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  justify-content: space-evenly;
+}
+
+.button_component
+{
+  height: 50px;
+  width: 200px;
+  background-color: #f07d4f;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  border-color: #7e1e1b;
+  border-style: solid;
+  border-width: 3px;
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+}
+.button_component:hover
+{
   
+  
+  background-color: #d6785c;
+  cursor: pointer;
+  
+}
+
+#Metronome-animation
+{
+  border-style: solid;
+  border-color: #d81e5b;
+  width: 400; 
+  height: 400;
+  border-radius: 500px;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  position: absolute
+}
+
+
+@keyframes example {
+  0%{
+    transform: scale(0.5);
+  }
+    
+  
+  100%{
+    transform: scale(1.0);
+    border-width: 15px;   
+}
 }
