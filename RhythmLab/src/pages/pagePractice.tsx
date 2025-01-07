@@ -125,49 +125,54 @@ export default function PagePractice()
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
                                   style=
-                                  {{position: 'relative', 
+                                  {{
+                                    marginTop: 40,
+                                    position: 'relative', 
                                     height: "100%",
                                     width: "90%",
-                                    alignItems: 'center'
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    display: 'flex'
                                   }}>
 
-
-
+                                      {/*** this is the div for the main visible area of the sheet space the muscial sheet itself */}
                                       <div 
+                                        className="Sheet_Area_Page"
                                         style=
-                                        {{
+                                        {{         
+                                          justifySelf: 'center',
+                                          alignSelf: 'center',                      
                                           marginTop: 40,
                                           marginBottom: 40,
                                           backgroundColor: 'aqua',
-                                          height: 200,
-                                          width: 200,
-                                          position: 'relative',
+                                          height: "90%",
+                                          width: "95%",
+                                          position: 'absolute',
                                           zIndex: 1
                                         }}>    
+                                      </div> 
 
-
-                                              <div 
-                                              style=
+                                         {/*** this is the div for the effect that renders below the main visible area*/}
+                                      <div 
+                                          className="Sheet_Area_Effect"
+                                          id="Sheet_Area_Animation"
+                                          style=
                                               {{
                                                 marginTop: 40,
                                                 marginBottom: 40,
-                                                backgroundColor: 'red',
-                                                height: 100,
-                                                width: 100,
-                                                position: 'relative',
+                                                height: "90%",
+                                                width: "95%",
+                                                position: 'absolute',
                                                 zIndex: 0
-                                              }}>                              
-                                            </div>                          
-                                      </div>
+                                          }}>                              
+                                      </div>  
 
-                                      
-
-
-                                    </div>
+                                                                      
+                                  </div>
 
 
 
-
+                                    {/*** this is the div that contains the button to go back to the initial page state!*/}
                                     <div style={{display: 'flex',width: "90%", alignContent: 'center', height: 50, justifyContent: 'center'}}>
 
                                             <Button
