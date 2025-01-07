@@ -95,7 +95,7 @@ export default function PagePractice()
                                             <h1> Selecione uma dificuldade </h1>
                                 </div>
 
-                                        <div className= 'metronome-body' style={{width: '100%', height: '100%', paddingTop: 50}}>
+                                        <div className= 'metronome-body' style={{width: '100%', height: '70vh', paddingTop: 50}}>
                                           
                                               <div className='row-item-container'>
 
