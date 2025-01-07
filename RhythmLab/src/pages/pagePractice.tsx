@@ -1,5 +1,5 @@
 import Button from "../components/button"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef  } from "react"
 
 
 
@@ -32,28 +32,34 @@ export default function PagePractice()
 
     const [key_pressed, set_key_pressed ] = useState(null)   // useed to store input detection 
     const [toggle_effect, set_toggle_effect] = useState(false) // used to create a visual effect everytime a key is pressed
+    const animationTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
     function handle_key_pressed(event)
     {
 
-        set_key_pressed(event.key)
-        console.log(`The key pressed was - ${event.key}`)  
-       handle_animation()
-        
-         
-    } 
+      set_key_pressed(event.key)
+      console.log(`The key pressed was - ${event.key}`)  
+      
+
+     
+      if (animationTimeout.current !== undefined) {
+        clearTimeout(animationTimeout.current);
+      }
+    
+      // Reset the effect immediately, then start a new animation
+      set_toggle_effect(false); // Reset the animation state
+      handle_animation(); // Start the animation for the new key press
+    }
    
     function clean_key_pressed()
     {
       set_key_pressed(null)
-      
-      
     }
 
     function handle_animation()
     {
       set_toggle_effect(true)
-      setTimeout(
+      animationTimeout.current = setTimeout(
         () => {set_toggle_effect(false)}, 250
       )
     }
