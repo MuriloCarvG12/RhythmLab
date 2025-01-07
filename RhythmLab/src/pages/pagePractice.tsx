@@ -35,14 +35,27 @@ export default function PagePractice()
 
     function handle_key_pressed(event)
     {
-        set_key_pressed(event.key)
-        console.log(`The key pressed was - ${key_pressed}`)
 
+        set_key_pressed(event.key)
+        console.log(`The key pressed was - ${event.key}`)  
+       handle_animation()
+        
+         
     } 
    
     function clean_key_pressed()
     {
       set_key_pressed(null)
+      
+      
+    }
+
+    function handle_animation()
+    {
+      set_toggle_effect(true)
+      setTimeout(
+        () => {set_toggle_effect(false)}, 250
+      )
     }
 
     useEffect(() => {
@@ -153,6 +166,7 @@ export default function PagePractice()
                                       </div> 
 
                                          {/*** this is the div for the effect that renders below the main visible area*/}
+                                      { toggle_effect &&
                                       <div 
                                           className="Sheet_Area_Effect"
                                           id="Sheet_Area_Animation"
@@ -166,6 +180,7 @@ export default function PagePractice()
                                                 zIndex: 0
                                           }}>                              
                                       </div>  
+                                      }
 
                                                                       
                                   </div>

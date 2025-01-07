@@ -252,8 +252,9 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
 {
   border-style: solid;
    border-color: #f0544f;
+  border-radius: 40px;
   animation-name: Metronome-animation;
-  animation-duration: 1s;
+  animation-duration: 0.3s;
   animation-iteration-count: infinite;
 }
 
@@ -262,7 +263,6 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
     transform: scale(0.5);
   }
     
-  
   100%{
     transform: scale(1.1);
     border-width: 5px;   
