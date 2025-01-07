@@ -236,11 +236,14 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
 {
   display: flex;
   flex-direction: column;
+  gap: 60px;
   align-items: center;
   justify-content: center;
   border-style: solid;
-  border-radius: 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   border-color: #F0544F;
   height: 60vh;
   justify-content: space-evenly;
+  margin-bottom: 20vh;
 }
