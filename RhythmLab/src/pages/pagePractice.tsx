@@ -24,7 +24,7 @@ export default function PagePractice()
         break;
 
       default:
-        displayText = 'This wasnt supossed to happen!';
+        displayText = 'This wasnt supposed to happen!';
         break;
     }
 
@@ -86,7 +86,7 @@ export default function PagePractice()
                                 <img src='../.././public/Favicon.png' className='favicon'></img>
                           </div>
 
-                    {/** renderiza a opcao de selecionar dificuldade */}
+                    {/** difficulty option gets loaded up! */}
 
                     {picked_difficulty == 0 
                     ?
@@ -130,7 +130,7 @@ export default function PagePractice()
 
 
                     }
-
+                    {/*** Rhythm Component gets loaded up! */}
                     { picked_difficulty > 0 
 
                       ?
@@ -139,8 +139,28 @@ export default function PagePractice()
                               <div style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', paddingRight: 6}}>
                                             <h1> {displayText} </h1>
                               </div>
+                                    
+
 
                               <div className="Sheet_Space">
+                                    {/*** this is the div for the progress bar */}
+                                  <div
+                                        className="Sheet_Area_Progress_Bar"
+
+                                        style={{
+                                            height: '5vh',
+                                            width: '120vh',
+                                            borderRadius: 30,
+                                            backgroundColor: '#ff976e',
+                                            zIndex: 2,
+                                            marginLeft: 'auto',
+                                            marginRight: 'auto',
+                                            marginTop: 30,
+                                        }}
+                                      >
+
+                                  </div>
+
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
                                   style=
@@ -154,6 +174,7 @@ export default function PagePractice()
                                     display: 'flex'
                                   }}>
 
+                                    
                                       {/*** this is the div for the main visible area of the sheet space the muscial sheet itself */}
                                       <div 
                                         className="Sheet_Area_Page"
