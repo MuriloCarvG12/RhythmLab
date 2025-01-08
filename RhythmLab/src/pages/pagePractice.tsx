@@ -144,22 +144,35 @@ export default function PagePractice()
 
                               <div className="Sheet_Space">
                                     {/*** this is the div for the progress bar */}
+
+                                <div style=
+                                {{display: 'flex', 
+                                  flexDirection: 'column',
+                                  justifyContent: 'center',
+                                  textAlign: 'center',
+                                  height: "20vh",
+                                  gap: 0,
+                                  color: 'white'
+                                }}
+                                >
+                                  <div><h1>Progress</h1></div>
                                   <div
                                         className="Sheet_Area_Progress_Bar"
 
                                         style={{
-                                            height: '5vh',
+                                            height: '2.5vh',
                                             width: '120vh',
                                             borderRadius: 30,
                                             backgroundColor: '#ff976e',
                                             zIndex: 2,
                                             marginLeft: 'auto',
                                             marginRight: 'auto',
-                                            marginTop: 30,
+                                            
                                         }}
                                       >
-
                                   </div>
+                                </div>
+
 
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
