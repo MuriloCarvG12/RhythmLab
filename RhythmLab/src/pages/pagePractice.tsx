@@ -1,6 +1,6 @@
 import Button from "../components/button"
 import { useState, useEffect, useRef  } from "react"
-
+import { rhythm } from "../rhythm-data/rhythm-data";
 
 
 export default function PagePractice()
@@ -73,6 +73,11 @@ export default function PagePractice()
         document.removeEventListener('keyup', clean_key_pressed);
       };
       }, []);
+
+    // rhythm related things
+
+    const [current_note, set_current_note] = useState(0) // keeps track of which note in the musical sheet we are on
+    const [notes_played, set_notes_played] = useState(0) // keeps track on how many notes have been palyed
 
 
     return (
@@ -192,7 +197,10 @@ export default function PagePractice()
                                       <div 
                                         className="Sheet_Area_Page"
                                         style=
-                                        {{         
+                                        {{
+                                          display: 'flex',
+                                          flexDirection: 'row',
+                                          gap: 30,       
                                           justifySelf: 'center',
                                           alignSelf: 'center',                      
                                           marginTop: 40,
@@ -203,6 +211,15 @@ export default function PagePractice()
                                           position: 'absolute',
                                           zIndex: 1
                                         }}>    
+                                          {
+                                              rhythm.map((index, duration) => (
+                                                      <div style={{backgroundColor: 'red', width: 40, height: 40}}>
+
+                                                      </div>
+
+                                              ))
+
+                                          }
                                       </div> 
 
                                          {/*** this is the div for the effect that renders below the main visible area*/}
