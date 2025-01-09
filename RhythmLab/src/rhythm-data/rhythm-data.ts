@@ -1,8 +1,8 @@
 export const rhythm = [
-    { type: 'note', duration: 'quarter' },
-    { type: 'note', duration: 'eighth' },
-    { type: 'rest', duration: 'quarter' },
-    { type: 'note', duration: 'half' },
-    { type: 'note', duration: 'half' },
-    { type: 'note', duration: 'quarter' },
+    { type: 'note1', duration: 'half', time: 5000},
+    { type: 'note2', duration: 'half', time: 5000},
+    { type: 'rest3', duration: 'half', time: 5000},
+    { type: 'note4', duration: 'half', time: 5000},
+    { type: 'note5', duration: 'half', time: 5000},
+    { type: 'note6', duration: 'half', time: 5000},
   ];
