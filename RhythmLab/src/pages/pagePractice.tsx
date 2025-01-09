@@ -77,7 +77,16 @@ export default function PagePractice()
     // rhythm related things
 
     const [current_note, set_current_note] = useState(0) // keeps track of which note in the musical sheet we are on
-    const [notes_played, set_notes_played] = useState(0) // keeps track on how many notes have been palyed
+    const [notes_played, set_notes_played] = useState(6) // keeps track on how many notes have been palyed
+    const [total_notes, set_total_notes] = useState(0)
+    const [isPlaying, set_isPlaying] = useState(false); // Tracks whether the rhythm is playing
+
+
+   
+
+    useEffect(() => {
+      set_total_notes(rhythm.length);
+    }, [rhythm]); // Only run when 'rhythm' changes // sets our total number of nots this will be used to manipulate the progress bar 
 
 
     return (
@@ -156,6 +165,7 @@ export default function PagePractice()
                                   justifyContent: 'center',
                                   textAlign: 'center',
                                   height: "20vh",
+                                  width: "125vh",
                                   gap: 0,
                                   color: 'white'
                                 }}
@@ -166,7 +176,7 @@ export default function PagePractice()
 
                                         style={{
                                             height: '2.5vh',
-                                            width: '120vh',
+                                            width: `${(notes_played / total_notes) * 100}%`,
                                             borderRadius: 30,
                                             backgroundColor: '#ff976e',
                                             zIndex: 2,
@@ -212,7 +222,7 @@ export default function PagePractice()
                                           zIndex: 1
                                         }}>    
                                           {
-                                              rhythm.map((index, duration) => (
+                                              rhythm.map((index, time) => (
                                                       <div style={{backgroundColor: 'red', width: 40, height: 40}}>
 
                                                       </div>
