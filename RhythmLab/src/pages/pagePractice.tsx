@@ -38,7 +38,7 @@ export default function PagePractice()
     {
 
       set_key_pressed(event.key)
-      console.log(`The key pressed was - ${event.key}`)  
+      console.log(`The key pressed was - ${key_pressed}`)  
       
 
      
@@ -77,7 +77,7 @@ export default function PagePractice()
     // rhythm related things
 
     const [current_note, set_current_note] = useState(0) // keeps track of which note in the musical sheet we are on
-    const [notes_played, set_notes_played] = useState(6) // keeps track on how many notes have been palyed
+    const [notes_played, set_notes_played] = useState(0) // keeps track on how many notes have been palyed
     const [total_notes, set_total_notes] = useState(0)
     const [isPlaying, set_isPlaying] = useState(false); // Tracks whether the rhythm is playing
     const timeoutRef = useRef<number | null>(null);
@@ -86,25 +86,29 @@ export default function PagePractice()
     {
       set_isPlaying(true)
 
-      const playNextNote = (noteIndex: number) =>  // this is a recursive function that takes the current index and checks if the current index is the last one! if not we will keep navigating through the whole array
+      const playNextNote =  (noteIndex: number) =>  // this is a recursive function that takes the current index and checks if the current index is the last one! if not we will keep navigating through the whole array
         {
+          console.log("current index " + noteIndex)
         // first block below is our exit condition
         if (noteIndex >= rhythm.length) {
           set_isPlaying(false); // stop playback when we reach the end of the rhythm array.
           return;
         }
-        // if we are not in the last note
-        set_current_note(noteIndex); // Update the current note index.
+        // if we are not in the last note then
+         set_current_note(noteIndex + 1); // Update the current note index.
+         set_notes_played(noteIndex + 1)
+        
   
 
         // Schedule the next note based on the duration of the current note.
         timeoutRef.current = window.setTimeout(() => {
-
-          console.log(`${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
+          
+          console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
           playNextNote(noteIndex + 1); // Move to the next note.
 
-        }, Number(rhythm[noteIndex]?.duration || 500));
+        }, Number(rhythm[noteIndex]?.time || 500));
 
+        
       };
   
       playNextNote(0); // starts our recursive function from the first note
@@ -250,7 +254,7 @@ export default function PagePractice()
                                         }}>    
                                           {
                                               
-                                              rhythm.map((index, time) => (
+                                              rhythm.map(() => (
                                                       <div style={{backgroundColor: 'red', width: 40, height: 40}}>
 
                                                       </div>
