@@ -3,6 +3,13 @@ import { useState, useEffect, useRef  } from "react"
 import { rhythm } from "../rhythm-data/rhythm-data";
 
 
+///TODO: SUPPLYING INPUTS BREAKS THE PROGRESS BAR, DO SOMETHING ABOUT IT...
+/***
+ *       
+ * 
+ * 
+ */
+
 export default function PagePractice()
 {
     // difficulty related things 
@@ -211,8 +218,8 @@ export default function PagePractice()
                                             borderRadius: 30,
                                             backgroundColor: '#ff976e',
                                             zIndex: 2,
-                                            marginLeft: 'auto',
-                                            marginRight: 'auto',
+                                            
+                                            
                                             
                                         }}
                                       >
