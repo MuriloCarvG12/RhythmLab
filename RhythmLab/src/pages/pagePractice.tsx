@@ -90,6 +90,7 @@ export default function PagePractice()
     const [isPlaying, set_isPlaying] = useState(false); // Tracks whether the rhythm is playing
     const timeoutRef = useRef<number | null>(null);
     const [current_note, set_current_note] = useState(0)
+    const [progress_animation_duration, set_progress_animation_duration] = useState(0) 
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
@@ -126,6 +127,12 @@ export default function PagePractice()
     useEffect(() => {
       set_total_notes(rhythm.length);
     }, [rhythm]); // Only run when 'rhythm' changes // sets our total number of nots this will be used to manipulate the progress bar 
+
+    useEffect(() => {
+      let TotalTime = 0;
+      rhythm.forEach((Note) => {TotalTime += Note.time})
+      set_progress_animation_duration(TotalTime)
+    }, [])
 
 
     return (
@@ -198,11 +205,12 @@ export default function PagePractice()
 
                               <div className="Sheet_Space">
 
-                                    {/*** this is the div for the progress bar */}
+                                  {/*** this is the div for the progress bar */}
                                   <Progress_bar
                                     notes_played={notes_played}
                                     total_notes={total_notes}
                                   />
+
 
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
@@ -221,11 +229,12 @@ export default function PagePractice()
                                       {/*** this is the div for the main visible area of the sheet space the muscial sheet itself */}
                                       <div 
                                         className="Sheet_Area_Page"
+                                
                                         style=
                                         {{
                                           display: 'flex',
                                           flexDirection: 'row',
-                                          justifyContent: 'center',
+                                          justifyContent: 'space-between',
                                           gap: 30,       
                                           justifySelf: 'center',
                                           alignSelf: 'center',                      
@@ -233,27 +242,52 @@ export default function PagePractice()
                                           marginBottom: 40,
                                           backgroundColor: 'aqua',
                                           height: "90%",
-                                          width: "95%",
+                                          width: "100%",
                                           position: 'absolute',
                                           zIndex: 1
-                                        }}>    
+                                        }}>   
 
-                                        {rhythm.map((note, index) => (
-                                        <div
-                                            key={index}
-                                            style={{
-                                              width: "50px",
-                                              height: "50px",
-                                              backgroundColor: index == current_note ? "#7aeb57" : "#fc5549",
-                                              transition: "background-color 0.1s ease",
-                                            }}
+
+                                        {/** Renders an animation that works to tell the user where they are! */}
+                                        
+                                        {
+                                          isPlaying &&
+                                          <div
+                                          className="Sheet_Current_Position"
+                                          id="Sheet_Current_Position"
+                                          style=
+                                          {{
+                                              transition: `left ${rhythm[current_note]?.time || 500}ms linear`,
+                                              left: `${((current_note) / (rhythm.length - 1)) * 100}%`
+                                              
+                                          }}
+
                                           >
-                                              {/* You can display some content here */}
-                                        </div>
-                                        ))}
-                                        </div> 
+                                          </div>
+                                        } 
 
-                                         {/*** this is the div for the effect that renders below the main visible area*/}
+
+
+                                        {/** Logic for rendering the rhythm squares! */}
+                                        {
+                                              rhythm.map((note, index) => (
+                                              <div
+                                                  key={index}
+                                                  style={{
+                                                    width: "50px",
+                                                    height: "50px",
+                                                    backgroundColor: index == current_note ? "#7aeb57" : "#fc5549",
+                                                    transition: "background-color 0.2s ease",
+
+                                                  }}
+                                                >
+                                                    {/* You can display some content here */}
+                                              </div>
+                                        ))}
+
+                                      </div> 
+
+                                      {/*** this is the div for the effect that renders below the main visible area*/}
                                       { toggle_effect &&
                                       <div 
                                           className="Sheet_Area_Effect"
