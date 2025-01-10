@@ -251,7 +251,7 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
 #Sheet_Area_Animation
 {
   border-style: solid;
-   border-color: #f0544f;
+  border-color: #f0544f;
   border-radius: 40px;
   animation-name: Metronome-animation;
   animation-duration: 0.3s;
@@ -268,3 +268,16 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
     border-width: 5px;   
 }
 }
+
+#Sheet_Current_Position
+{
+  display: 'flex';
+  background-color: orange;
+  align-self: center;
+  width: 2px;
+  height: 150px;
+  position: absolute;
+  left: 1295px;
+  padding: 0px;
+}
+
