@@ -234,7 +234,7 @@ export default function PagePractice()
                                         {{
                                           display: 'flex',
                                           flexDirection: 'row',
-                                          justifyContent: 'space-evenly',
+                                          justifyContent: 'space-between',
                                           gap: 30,       
                                           justifySelf: 'center',
                                           alignSelf: 'center',                      
@@ -249,7 +249,7 @@ export default function PagePractice()
 
 
                                         {/** Renders an animation that works to tell the user where they are! */}
-                                        {/*** TODO Syncronize-me */}
+                                        
                                         {
                                           isPlaying &&
                                           <div
@@ -258,7 +258,8 @@ export default function PagePractice()
                                           style=
                                           {{
                                               transition: `left ${rhythm[current_note]?.time || 500}ms linear`,
-                                              left: `${((current_note + 0.1) / (rhythm.length - 1)) * 100}%`
+                                              left: `${((current_note) / (rhythm.length - 1)) * 100}%`
+                                              
                                           }}
 
                                           >
