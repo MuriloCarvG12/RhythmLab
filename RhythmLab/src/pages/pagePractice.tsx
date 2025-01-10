@@ -83,11 +83,12 @@ export default function PagePractice()
 
     // rhythm related things
 
-    const [current_note, set_current_note] = useState(0) // keeps track of which note in the musical sheet we are on
+    
     const [notes_played, set_notes_played] = useState(0) // keeps track on how many notes have been palyed
     const [total_notes, set_total_notes] = useState(0)
     const [isPlaying, set_isPlaying] = useState(false); // Tracks whether the rhythm is playing
     const timeoutRef = useRef<number | null>(null);
+    const [current_note, set_current_note] = useState(0)
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
@@ -102,7 +103,7 @@ export default function PagePractice()
           return;
         }
         // if we are not in the last note then
-         set_current_note(noteIndex + 1); // Update the current note index.
+         set_current_note(noteIndex) // Update the current note index.
          set_notes_played(noteIndex + 1)
         
   
@@ -195,7 +196,9 @@ export default function PagePractice()
                               
 
                               <div className="Sheet_Space">
+
                                     {/*** this is the div for the progress bar */}
+                                    {/*** TODO componentize-me... */}
 
                                 <div style=
                                 {{display: 'flex', 
@@ -217,10 +220,7 @@ export default function PagePractice()
                                             width: `${(notes_played / total_notes) * 100}%`,
                                             borderRadius: 30,
                                             backgroundColor: '#ff976e',
-                                            zIndex: 2,
-                                            
-                                            
-                                            
+                                            zIndex: 2,                                                                                                                                
                                         }}
                                       >
                                   </div>
@@ -237,7 +237,7 @@ export default function PagePractice()
                                     width: "90%",
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    display: 'flex'
+                                    display: 'flex',
                                   }}>
 
                                     
@@ -248,6 +248,7 @@ export default function PagePractice()
                                         {{
                                           display: 'flex',
                                           flexDirection: 'row',
+                                          justifyContent: 'center',
                                           gap: 30,       
                                           justifySelf: 'center',
                                           alignSelf: 'center',                      
@@ -259,17 +260,21 @@ export default function PagePractice()
                                           position: 'absolute',
                                           zIndex: 1
                                         }}>    
-                                          {
-                                              
-                                              rhythm.map(() => (
-                                                      <div style={{backgroundColor: 'red', width: 40, height: 40}}>
 
-                                                      </div>
-
-                                              ))
-
-                                          }
-                                      </div> 
+                                        {rhythm.map((note, index) => (
+                                        <div
+                                            key={index}
+                                            style={{
+                                              width: "50px",
+                                              height: "50px",
+                                              backgroundColor: index == current_note ? "#7aeb57" : "#fc5549",
+                                              transition: "background-color 0.1s ease",
+                                            }}
+                                          >
+                                              {/* You can display some content here */}
+                                        </div>
+                                        ))}
+                                        </div> 
 
                                          {/*** this is the div for the effect that renders below the main visible area*/}
                                       { toggle_effect &&
@@ -294,7 +299,7 @@ export default function PagePractice()
 
 
                                     {/*** this is the div that contains the button to go back to the initial page state!*/}
-                                    <div style={{display: 'flex',width: "90%", alignContent: 'center', height: 50, justifyContent: 'center'}}>
+                                    <div style={{display: 'flex',width: "90%", alignContent: 'center', height: 50, justifyContent: 'center', gap:"20%", paddingBottom: 40}}>
 
                                             <Button
                                                   handleClick={() => set_picked_difficulty(0)}
