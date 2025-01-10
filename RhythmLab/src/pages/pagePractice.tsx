@@ -1,6 +1,7 @@
 import Button from "../components/button"
 import { useState, useEffect, useRef  } from "react"
 import { rhythm } from "../rhythm-data/rhythm-data";
+import Progress_bar from "../components/progress_bar";
 
 
 ///TODO: SUPPLYING INPUTS BREAKS THE PROGRESS BAR, DO SOMETHING ABOUT IT...
@@ -198,34 +199,10 @@ export default function PagePractice()
                               <div className="Sheet_Space">
 
                                     {/*** this is the div for the progress bar */}
-                                    {/*** TODO componentize-me... */}
-
-                                <div style=
-                                {{display: 'flex', 
-                                  flexDirection: 'column',
-                                  justifyContent: 'center',
-                                  textAlign: 'center',
-                                  height: "20vh",
-                                  width: "125vh",
-                                  gap: 0,
-                                  color: 'white'
-                                }}
-                                >
-                                  <div><h1>Progress</h1></div>
-                                  <div
-                                        className="Sheet_Area_Progress_Bar"
-
-                                        style={{
-                                            height: '2.5vh',
-                                            width: `${(notes_played / total_notes) * 100}%`,
-                                            borderRadius: 30,
-                                            backgroundColor: '#ff976e',
-                                            zIndex: 2,                                                                                                                                
-                                        }}
-                                      >
-                                  </div>
-                                </div>
-
+                                  <Progress_bar
+                                    notes_played={notes_played}
+                                    total_notes={total_notes}
+                                  />
 
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
