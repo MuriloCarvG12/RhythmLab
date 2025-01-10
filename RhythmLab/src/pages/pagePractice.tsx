@@ -88,7 +88,7 @@ export default function PagePractice()
     const [total_notes, set_total_notes] = useState(0)
     const [isPlaying, set_isPlaying] = useState(false); // Tracks whether the rhythm is playing
     const timeoutRef = useRef<number | null>(null);
-    let current_note = 0;
+    const [current_note, set_current_note] = useState(0)
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
@@ -103,7 +103,7 @@ export default function PagePractice()
           return;
         }
         // if we are not in the last note then
-         current_note = noteIndex // Update the current note index.
+         set_current_note(noteIndex) // Update the current note index.
          set_notes_played(noteIndex + 1)
         
   
@@ -196,7 +196,9 @@ export default function PagePractice()
                               
 
                               <div className="Sheet_Space">
+
                                     {/*** this is the div for the progress bar */}
+                                    {/*** TODO componentize-me... */}
 
                                 <div style=
                                 {{display: 'flex', 
@@ -218,10 +220,7 @@ export default function PagePractice()
                                             width: `${(notes_played / total_notes) * 100}%`,
                                             borderRadius: 30,
                                             backgroundColor: '#ff976e',
-                                            zIndex: 2,
-                                            
-                                            
-                                            
+                                            zIndex: 2,                                                                                                                                
                                         }}
                                       >
                                   </div>
@@ -238,7 +237,7 @@ export default function PagePractice()
                                     width: "90%",
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    display: 'flex'
+                                    display: 'flex',
                                   }}>
 
                                     
@@ -249,6 +248,7 @@ export default function PagePractice()
                                         {{
                                           display: 'flex',
                                           flexDirection: 'row',
+                                          justifyContent: 'center',
                                           gap: 30,       
                                           justifySelf: 'center',
                                           alignSelf: 'center',                      
@@ -260,13 +260,14 @@ export default function PagePractice()
                                           position: 'absolute',
                                           zIndex: 1
                                         }}>    
+
                                         {rhythm.map((note, index) => (
                                         <div
                                             key={index}
                                             style={{
                                               width: "50px",
                                               height: "50px",
-                                              backgroundColor: index == current_note ? "green" : "gray",
+                                              backgroundColor: index == current_note ? "#7aeb57" : "#fc5549",
                                               transition: "background-color 0.1s ease",
                                             }}
                                           >
