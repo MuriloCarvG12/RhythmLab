@@ -209,7 +209,8 @@ export default function PagePractice()
                                   <Progress_bar
                                     notes_played={notes_played}
                                     total_notes={total_notes}
-                                  />
+                                                                      
+                                    />
 
 
                                   {/*** below me is a div that represents the space of the sheet area */}
@@ -240,11 +241,15 @@ export default function PagePractice()
                                           alignSelf: 'center',                      
                                           marginTop: 40,
                                           marginBottom: 40,
-                                          backgroundColor: 'aqua',
+                                          backgroundColor: '#292929',
                                           height: "90%",
                                           width: "100%",
                                           position: 'absolute',
-                                          zIndex: 1
+                                          zIndex: 1,
+                                          padding: 30,
+                                          borderColor: '#ff9491',
+                                          borderStyle: 'solid',
+                                          borderRadius: 10,
                                         }}>   
 
 
