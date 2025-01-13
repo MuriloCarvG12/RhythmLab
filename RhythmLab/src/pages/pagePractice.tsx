@@ -108,7 +108,7 @@ export default function PagePractice()
         }
         // if we are not in the last note then
          set_current_note(noteIndex) // Update the current note index.
-         set_notes_played(noteIndex + 1)
+         
         
   
 
@@ -118,6 +118,7 @@ export default function PagePractice()
           
           console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
           playNextNote(noteIndex + 1); // Move to the next note.
+          set_notes_played(noteIndex + 1)
 
         }, Number(rhythm[noteIndex]?.time || 500));
 
