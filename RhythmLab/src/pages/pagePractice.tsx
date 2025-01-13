@@ -4,6 +4,7 @@ import { rhythm } from "../rhythm-data/rhythm-data";
 import Progress_bar from "../components/progress_bar";
 
 
+
 ///TODO: SUPPLYING INPUTS BREAKS THE PROGRESS BAR, DO SOMETHING ABOUT IT...
 /***
  *       
@@ -94,6 +95,7 @@ export default function PagePractice()
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
+      const audio = new Audio("../.././public/sounds/metronome.mp3");
       set_isPlaying(true)
 
       const playNextNote =  (noteIndex: number) =>  // this is a recursive function that takes the current index and checks if the current index is the last one! if not we will keep navigating through the whole array
@@ -112,6 +114,7 @@ export default function PagePractice()
 
         // Schedule the next note based on the duration of the current note.
         timeoutRef.current = window.setTimeout(() => {
+          audio.play()
           
           console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
           playNextNote(noteIndex + 1); // Move to the next note.
@@ -123,6 +126,17 @@ export default function PagePractice()
   
       playNextNote(0); // starts our recursive function from the first note
     };
+
+
+    function stopRhythm()
+    {
+      set_notes_played(0)
+      set_picked_difficulty(0)
+      set_current_note(0)
+      set_isPlaying(false)
+      clearTimeout(timeoutRef.current as number) // picks out timeout ref and converts it to a number Type Cast
+      
+    }
 
     useEffect(() => {
       set_total_notes(rhythm.length);
@@ -220,7 +234,7 @@ export default function PagePractice()
                                     marginTop: 40,
                                     position: 'relative', 
                                     height: "100%",
-                                    width: "90%",
+                                    width: "95%",
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     display: 'flex',
@@ -228,7 +242,7 @@ export default function PagePractice()
 
                                     
                                       {/*** this is the div for the main visible area of the sheet space the muscial sheet itself */}
-                                      <div 
+                                      <div
                                         className="Sheet_Area_Page"
                                 
                                         style=
@@ -246,7 +260,7 @@ export default function PagePractice()
                                           width: "100%",
                                           position: 'absolute',
                                           zIndex: 1,
-                                          padding: 30,
+                                          padding: 3,
                                           borderColor: '#ff9491',
                                           borderStyle: 'solid',
                                           borderRadius: 10,
@@ -317,14 +331,20 @@ export default function PagePractice()
                                     {/*** this is the div that contains the button to go back to the initial page state!*/}
                                     <div style={{display: 'flex',width: "90%", alignContent: 'center', height: 50, justifyContent: 'center', gap:"20%", paddingBottom: 40}}>
 
+                                        {
+
+                                          isPlaying == true ?
                                             <Button
-                                                  handleClick={() => set_picked_difficulty(0)}
+                                                  handleClick={() => stopRhythm() }
                                                   text={"Retornar"}
                                             />
+                                                                                   
+                                          :
                                             <Button
                                                 handleClick={() => startRhythm()}
                                                 text={"Comecar"}
                                             />
+                                      }
 
                                     </div>
 
