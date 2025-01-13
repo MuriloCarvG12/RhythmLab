@@ -37,10 +37,11 @@ export default function PagePractice()
         break;
     }
 
-    // input detection things
+    // input detection things also saving the number of inputs sent by the player
 
     const [key_pressed, set_key_pressed ] = useState(null)   // useed to store input detection 
     const [toggle_effect, set_toggle_effect] = useState(false) // used to create a visual effect everytime a key is pressed
+    const [total_inputs, set_total_inputs] = useState(0) // used to store the total inputs sent by the player
     const animationTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
     function handle_key_pressed(event)
@@ -48,6 +49,7 @@ export default function PagePractice()
 
       set_key_pressed(event.key)
       console.log(`The key pressed was - ${key_pressed}`)  
+      set_total_inputs((prevTotal) => prevTotal + 1);
       
 
      
@@ -63,6 +65,7 @@ export default function PagePractice()
     function clean_key_pressed()
     {
       set_key_pressed(null)
+      
     }
 
     function handle_animation()
@@ -148,6 +151,8 @@ export default function PagePractice()
       rhythm.forEach((Note) => {TotalTime += Note.time})
       set_progress_animation_duration(TotalTime)
     }, [])
+
+    // Player Stats stuff - saving the number of inputs sent by the player and comparing how accurate they are
 
 
     return (
@@ -348,7 +353,7 @@ export default function PagePractice()
                                       }
 
                                     </div>
-
+                                {`teste ${total_inputs}`}
                               </div>                     
                         </>
 
