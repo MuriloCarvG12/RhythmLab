@@ -229,9 +229,9 @@ export default function PagePractice()
                                   <Progress_bar
                                     notes_played={notes_played}
                                     total_notes={total_notes}
-                                                                      
+                                    total_inputs={total_inputs}         
                                     />
-
+                                  
 
                                   {/*** below me is a div that represents the space of the sheet area */}
                                   <div 
@@ -353,7 +353,7 @@ export default function PagePractice()
                                       }
 
                                     </div>
-                                {`teste ${total_inputs}`}
+                                
                               </div>                     
                         </>
 

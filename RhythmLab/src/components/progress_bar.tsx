@@ -1,13 +1,14 @@
 interface Progress_bar_elements
 {
     notes_played: number,
-    total_notes: number
+    total_notes: number,
+    total_inputs :number
 }
 
 
 
 
-export default function Progress_bar({notes_played, total_notes}:Progress_bar_elements)
+export default function Progress_bar({notes_played, total_notes, total_inputs}:Progress_bar_elements)
 {
     return(                         
             <div style=
@@ -21,13 +22,18 @@ export default function Progress_bar({notes_played, total_notes}:Progress_bar_el
                     color: 'white'
             }}
             >
-            <div><h1>Progress</h1></div>
+        <div style={{}}>
+            <div><h1>{`Progress ${((notes_played / total_notes) * 100).toFixed(2)}%`}</h1></div>
+            <div><h2>{`teste ${total_inputs}`}</h2></div>
+        </div>
+            
 
             <div
                 className="Sheet_Area_Progress_Bar"
     
                     style={{
                             height: '2.5vh',
+                            
                             width: `${(notes_played / total_notes) * 100}%`,
                             borderRadius: 30,
                             backgroundColor: '#ff976e',
