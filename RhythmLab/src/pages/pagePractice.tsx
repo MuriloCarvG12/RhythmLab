@@ -95,10 +95,13 @@ export default function PagePractice()
     const timeoutRef = useRef<number | null>(null);
     const [current_note, set_current_note] = useState(0)
     const [progress_animation_duration, set_progress_animation_duration] = useState(0) 
+    
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
       const audio = new Audio("../.././public/sounds/metronome.mp3");
+      const start_time = Date.now() //this represents the current time the rhythm has started it will be used as a base to calculate all other future timings
+      console.log(`the initial time is ${start_time}`)
       set_isPlaying(true)
 
       const playNextNote =  (noteIndex: number) =>  // this is a recursive function that takes the current index and checks if the current index is the last one! if not we will keep navigating through the whole array
@@ -109,16 +112,17 @@ export default function PagePractice()
           set_isPlaying(false); // stop playback when we reach the end of the rhythm array.
           return;
         }
+
         // if we are not in the last note then
          set_current_note(noteIndex) // Update the current note index.
          
-        
-  
+        const expected_time = start_time + Number(rhythm.slice(0,  noteIndex).reduce((sum, note) => sum + note.time, 0))
+        console.log(`the expected time is ${expected_time}`)
 
         // Schedule the next note based on the duration of the current note.
         timeoutRef.current = window.setTimeout(() => {
           audio.play()
-          
+          console.log(timeoutRef)
           console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
           playNextNote(noteIndex + 1); // Move to the next note.
           set_notes_played(noteIndex + 1)
