@@ -236,7 +236,7 @@ export default function PagePractice()
 
                       <>
 
-                              <div style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', paddingRight: 6}}>
+                              <div className="Sheet_Space_Header" style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', color: 'white'}}>
                                             <h1> {displayText} </h1>
                               </div>
                                     
