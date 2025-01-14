@@ -51,8 +51,22 @@ export default function PagePractice()
       console.log(`The key pressed was - ${key_pressed}`)  
       set_total_inputs((prevTotal) => prevTotal + 1);
       
+      const input_time = Date.now()
 
-     
+      if(timeoutRef.current)
+      {
+        const time_difference = timeoutRef.current ? input_time - timeoutRef.current : null // this line gets the time difference between the user input and the expected time for the note to play
+        console.log(`Time difference for note ${current_note}: ${time_difference} ms`);
+        if (Math.abs(time_difference) <= 100) {
+          console.log('Great timing!');
+        } else {
+          console.log('Missed timing.');
+        }
+      }
+      
+      
+
+
       if (animationTimeout.current !== undefined) {
         clearTimeout(animationTimeout.current);
       }
@@ -117,10 +131,11 @@ export default function PagePractice()
          set_current_note(noteIndex) // Update the current note index.
          
         const expected_time = start_time + Number(rhythm.slice(0,  noteIndex).reduce((sum, note) => sum + note.time, 0))
+        timeoutRef.current = expected_time;
         console.log(`the expected time is ${expected_time}`)
 
         // Schedule the next note based on the duration of the current note.
-        timeoutRef.current = window.setTimeout(() => {
+        window.setTimeout(() => {
           audio.play()
           console.log(timeoutRef)
           console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
