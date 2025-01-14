@@ -2,6 +2,7 @@ import Button from "../components/button"
 import { useState, useEffect, useRef  } from "react"
 import { rhythm } from "../rhythm-data/rhythm-data";
 import Progress_bar from "../components/progress_bar";
+import Header from "../components/header";
 
 
 
@@ -180,10 +181,7 @@ export default function PagePractice()
             <div style={{width: '80%'}}>
 
 
-                          <div className='header'>
-                                <div><h1 className='Titles-font'>Welcome to RhythmLab !</h1></div>
-                                <img src='../.././public/Favicon.png' className='favicon'></img>
-                          </div>
+                    <Header/>
 
                     {/** difficulty option gets loaded up! */}
 
@@ -236,7 +234,7 @@ export default function PagePractice()
 
                       <>
 
-                              <div style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', paddingRight: 6}}>
+                              <div className="Sheet_Space_Header" style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', color: 'white'}}>
                                             <h1> {displayText} </h1>
                               </div>
                                     
