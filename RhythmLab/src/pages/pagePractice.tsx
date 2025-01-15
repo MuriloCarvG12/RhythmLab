@@ -43,6 +43,8 @@ export default function PagePractice()
     const [key_pressed, set_key_pressed ] = useState(null)   // useed to store input detection 
     const [toggle_effect, set_toggle_effect] = useState(false) // used to create a visual effect everytime a key is pressed
     const [total_inputs, set_total_inputs] = useState(0) // used to store the total inputs sent by the player
+    const [timeDifferenceEffect, setTimeDifferenceEffect] = useState(0); // used to determine which effect the user will see 0 - default color 1 - green color(right timing) 2 - red color(missed timing)
+    const [timeDifferenceColor, setTimeDifferenceColor] = useState("#F0544F");
     const animationTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
     function handle_key_pressed(event)
@@ -58,12 +60,43 @@ export default function PagePractice()
       {
         const time_difference = timeoutRef.current ? input_time - timeoutRef.current : null // this line gets the time difference between the user input and the expected time for the note to play
         console.log(`Time difference for note ${current_note}: ${time_difference} ms`);
-        if (Math.abs(time_difference) <= 100) {
+
+        if (Math.abs(time_difference as number) <= 100) {
+          // set_time_difference_effect(1) this means the player got the time right and will be rewarded with a green border color! the settimeout resets the color into the default one after 500ms
+          setTimeDifferenceEffect(1)         
           console.log('Great timing!');
-        } else {
-          console.log('Missed timing.');
+        } 
+
+        else 
+        {
+           // set_time_difference_effect(2) this means the player got the time wrong and will be rewarded with a red border color! he settimeout resets the color into the default one after 500ms
+           setTimeDifferenceEffect(2)       
+          console.log('YOU FUCKING SUCK!');
         }
+
+        switch(timeDifferenceEffect)
+        {
+          case 0:
+            setTimeDifferenceColor("#F0544F")
+            break;
+
+          case 1:
+            setTimeDifferenceColor("green")           
+            break;
+
+          case 2:
+            setTimeDifferenceColor("red")          
+            break;
+
+        }
+
+        setTimeout(() => {
+          setTimeDifferenceEffect(0);
+          setTimeDifferenceColor("#F0544F");
+         }, 500);
       }
+
+
       
       
 
@@ -233,8 +266,8 @@ export default function PagePractice()
                       ?
 
                       <>
-
-                              <div className="Sheet_Space_Header" style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', color: 'white'}}>
+                              {/** this is the element for the header */}
+                              <div className="Sheet_Space_Header" style={{backgroundColor: timeDifferenceColor, textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', color: 'white'}}>
                                             <h1> {displayText} </h1>
                               </div>
                                     
