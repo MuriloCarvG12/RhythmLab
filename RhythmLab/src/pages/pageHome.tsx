@@ -18,7 +18,7 @@ export default function PageHome()
                 <img src='../.././public/Favicon.png' className='favicon'></img>
             </div>
             <div className='Paragraph'>
-            <p className='Titles-font' style={{fontSize:15, opacity: 1}}>
+            <p className='Titles-font' style={{fontSize:30, opacity: 1}}>
             Bem-vindo ao RhythmLab!
             </p>
             <p>
@@ -26,10 +26,10 @@ export default function PageHome()
             </p>
             <p>
             <br></br>
-            <b style={{fontSize:15, opacity: 1, color: 'white'}}>O que você encontrará aqui!</b>
+            <b style={{fontSize:30, opacity: 1, color: 'white'}}>O que você encontrará aqui!</b>
             </p>
             <p>
-            <b>Metrônomo interativo:</b> pratique com batidas personalizáveis ​​para combinar com qualquer andamento ou assinatura de tempo.
+            <b>Metrônomo interativo:</b> pratique com batidas personalizáveis ​para combinar com qualquer andamento ou assinatura de tempo.
             </p>
             <p>
             <b>Exercícios de ritmo:</b> melhore seu ritmo com desafios e exercícios envolventes.
