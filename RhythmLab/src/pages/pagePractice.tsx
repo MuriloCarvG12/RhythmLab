@@ -61,12 +61,11 @@ export default function PagePractice()
         const time_difference = timeoutRef.current ? input_time - timeoutRef.current : null // this line gets the time difference between the user input and the expected time for the note to play
         console.log(`Time difference for note ${current_note}: ${time_difference} ms`);
 
-        if (Math.abs(time_difference as number) <= 100) {
+        if (Math.abs(time_difference as number) <= 250) {
           // set_time_difference_effect(1) this means the player got the time right and will be rewarded with a green border color! the settimeout resets the color into the default one after 500ms
           setTimeDifferenceEffect(1)         
           console.log('Great timing!');
         } 
-
         else 
         {
            // set_time_difference_effect(2) this means the player got the time wrong and will be rewarded with a red border color! he settimeout resets the color into the default one after 500ms
@@ -74,33 +73,11 @@ export default function PagePractice()
           console.log('YOU FUCKING SUCK!');
         }
 
-        switch(timeDifferenceEffect)
-        {
-          case 0:
-            setTimeDifferenceColor("#F0544F")
-            break;
-
-          case 1:
-            setTimeDifferenceColor("green")           
-            break;
-
-          case 2:
-            setTimeDifferenceColor("red")          
-            break;
-
-        }
-
         setTimeout(() => {
           setTimeDifferenceEffect(0);
           setTimeDifferenceColor("#F0544F");
-         }, 500);
+         }, 1000);
       }
-
-
-      
-      
-
-
       if (animationTimeout.current !== undefined) {
         clearTimeout(animationTimeout.current);
       }
@@ -109,6 +86,26 @@ export default function PagePractice()
       set_toggle_effect(false); // Reset the animation state
       handle_animation(); // Start the animation for the new key press
     }
+
+    useEffect(() => {
+      switch (timeDifferenceEffect) {
+        
+        case 0:
+          setTimeDifferenceColor("#F0544F");
+          break;
+
+        case 1:
+          setTimeDifferenceColor("green");
+          break;
+
+        case 2:
+          setTimeDifferenceColor("red");
+          break;
+
+        default:
+          break;
+      }
+    }, [timeDifferenceEffect]);
    
     function clean_key_pressed()
     {
