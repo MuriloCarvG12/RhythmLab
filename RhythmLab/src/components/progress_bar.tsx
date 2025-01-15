@@ -23,7 +23,7 @@ export default function Progress_bar({notes_played, total_notes, total_inputs}:P
             }}
             >
         <div style={{}}>
-            <div><h1>{`Progress ${((notes_played / total_notes) * 100).toFixed(2)}%`}</h1></div>
+            <div><h1>{`Progresso: ${((notes_played / total_notes) * 100).toFixed(2)}%`}</h1></div>
             <div><h2>{`Total de Teclas apertadas:  ${total_inputs}`}</h2></div>
         </div>
             
