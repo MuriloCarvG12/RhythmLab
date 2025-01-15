@@ -3,7 +3,7 @@ import Card_button from '../components/card'
 
 export default function PageHome()
 {
-     //TODO these images are super terrible, please find better ones later...
+     
 
     const metronome = '/metronome'
     const practice = '/practice'
@@ -18,33 +18,31 @@ export default function PageHome()
                 <img src='../.././public/Favicon.png' className='favicon'></img>
             </div>
             <div className='Paragraph'>
-                <p className='Titles-font' style={{fontSize:15, opacity: 1}}> 
-                    Welcome to RhythmLab!
-                </p>
-                <p> 
-                    Discover the joy of rhythm with our interactive platform, designed to help musicians of all levels sharpen their sense of timing and groove. Whether you're a drummer, guitarist, vocalist, or just someone who loves to tap along to music, we've got tools and exercises tailored for you.
-                </p>
-                <p> 
-                    What You’ll Find Here:
-                </p>
-                <p>
-                        Interactive Metronome: Practice with customizable beats to match any tempo or time signature.
-                </p>
-                <p>
-                         Rhythm Exercises: Improve your timing with engaging challenges and drills.
-                </p>
-                <p>
-                        Learning Resources: Explore guides and tutorials to master the basics of rhythm theory.
-                </p>
-                        
-                <p>
-                    No matter where you are on your musical journey, we’re here to help you find your groove and develop the confidence to play in time with any ensemble or recording.
-
-                    Let’s make music, one beat at a time!
-
-                    Get Started Now!
-                </p>
-
+            <p className='Titles-font' style={{fontSize:30, opacity: 1}}>
+            Bem-vindo ao RhythmLab!
+            </p>
+            <p>
+            Descubra a alegria do ritmo com nossa plataforma interativa, projetada para ajudar músicos de todos os níveis a aprimorar seu senso de ritmo e groove. Seja você um baterista, guitarrista, vocalista ou apenas alguém que adora bater junto com a música, temos ferramentas e exercícios personalizados para você.
+            </p>
+            <p>
+            <br></br>
+            <b style={{fontSize:30, opacity: 1, color: 'white'}}>O que você encontrará aqui!</b>
+            </p>
+            <p>
+            <b>Metrônomo interativo:</b> pratique com batidas personalizáveis ​para combinar com qualquer andamento ou assinatura de tempo.
+            </p>
+            <p>
+            <b>Exercícios de ritmo:</b> melhore seu ritmo com desafios e exercícios envolventes.
+            </p>
+            <p>
+            <b>Recursos de aprendizagem:</b> explore guias e tutoriais para dominar os fundamentos da teoria do ritmo.
+            </p>
+            <br></br>
+            <p>
+            Não importa onde você esteja em sua jornada musical, estamos aqui para ajudá-lo a encontrar seu ritmo e desenvolver a confiança para tocar no tempo com qualquer conjunto ou gravação.
+            Vamos fazer música, uma batida de cada vez!
+            Comece agora!
+            </p>
             </div>
             <div className='row-item-container'>
 
