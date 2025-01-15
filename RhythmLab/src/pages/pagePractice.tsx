@@ -76,7 +76,7 @@ export default function PagePractice()
         setTimeout(() => {
           setTimeDifferenceEffect(0);
           setTimeDifferenceColor("#F0544F");
-         }, 1000);
+         }, 250);
       }
       if (animationTimeout.current !== undefined) {
         clearTimeout(animationTimeout.current);
@@ -89,7 +89,7 @@ export default function PagePractice()
 
     useEffect(() => {
       switch (timeDifferenceEffect) {
-        
+
         case 0:
           setTimeDifferenceColor("#F0544F");
           break;
@@ -264,13 +264,13 @@ export default function PagePractice()
 
                       <>
                               {/** this is the element for the header */}
-                              <div className="Sheet_Space_Header" style={{backgroundColor: timeDifferenceColor, textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', color: 'white'}}>
+                              <div className="Sheet_Space_Header" style={{backgroundColor: timeDifferenceColor, textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: timeDifferenceColor, width: '100%', color: 'white'}}>
                                             <h1> {displayText} </h1>
                               </div>
                                     
                               
 
-                              <div className="Sheet_Space">
+                              <div className="Sheet_Space" style={{borderColor: timeDifferenceColor}}>
 
                                   {/*** this is the div for the progress bar */}
                                   <Progress_bar
