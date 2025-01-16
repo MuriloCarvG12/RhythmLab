@@ -3,15 +3,9 @@ import { useState, useEffect, useRef  } from "react"
 import { rhythm } from "../rhythm-data/rhythm-data";
 import Progress_bar from "../components/progress_bar";
 import Header from "../components/header";
+import Difficulty_picker_screen from "../components/difficulty_picker_screen";
+import Sheet_space_header from "../components/sheet_space_header";
 
-
-
-///TODO: SUPPLYING INPUTS BREAKS THE PROGRESS BAR, DO SOMETHING ABOUT IT...
-/***
- *       
- * 
- * 
- */
 
 export default function PagePractice()
 {
@@ -229,63 +223,24 @@ export default function PagePractice()
                     {picked_difficulty == 0 
                     ?
                     <>
-                                <div style={{backgroundColor: '#F0544F', textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: '#F0544F', width: '100%', paddingRight: 6}}>
-                                            <h1> Selecione uma dificuldade </h1>
-                                </div>
+                        <Difficulty_picker_screen
 
-                                        <div className= 'metronome-body' style={{width: '100%', height: '70vh', paddingTop: 50}}>
-                                          
-                                              <div className='row-item-container'>
-
-                                                  <Button 
-                                                    handleClick={() => set_picked_difficulty(1)}
-                                                    text={"Facil"}
-                                                    bgColor="#5bff42"
-                                                    
-                                                  />
-                                                  <Button
-                                                    handleClick={() => set_picked_difficulty(2)}
-                                                    text={"Medio"}
-                                                    bgColor="#ffdc42"
-
-                                                  />
-                                                  <Button
-                                                  handleClick={() => set_picked_difficulty(3)}
-                                                  text={"Dificil"}
-                                                  bgColor="#ff5542"
-                                                  />
-
-                                        </div>
-
-                                </div>
-                                
+                          setPickedDifficulty={set_picked_difficulty}
+                        />       
                     </>
-
                     :
-
                     <>
                     </>
-
-
                     }
+
                     {/*** Rhythm Component gets loaded up! */}
                     {picked_difficulty > 0 ? (
                         <>
                           {/* this is the element for the header */}
-                          <div
-                            className="Sheet_Space_Header"
-                            style={{
-                              backgroundColor: timeDifferenceColor,
-                              textAlign: "center",
-                              borderBlockStyle: "solid",
-                              borderBlockWidth: 3,
-                              borderBlockColor: timeDifferenceColor,
-                              width: "100%",
-                              color: "white",
-                            }}
-                          >
-                            <h1> {displayText} </h1>
-                          </div>
+                          <Sheet_space_header
+                          timeDifferenceColor={timeDifferenceColor}
+                          displayText={displayText}
+                          />
 
                           {!game_is_over ? (
                             <>
