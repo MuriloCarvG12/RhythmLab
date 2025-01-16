@@ -16,27 +16,30 @@ import Header from "../components/header";
 export default function PagePractice()
 {
     // difficulty related things 
-
+    const [game_is_over, set_game_is_over] = useState(true)
     const [picked_difficulty, set_picked_difficulty] = useState(0) // stores the difficulty picked
-    let displayText; // stores the text based on the difficulty
-    switch (picked_difficulty) {
+    const [displayText, setDisplayText] = useState("Selecione uma dificuldade");
 
-      case 1:
-        displayText = 'Pratica - Facil';
-        break;
-
-      case 2:
-        displayText = 'Pratica - Medio';
-        break;
-
-      case 3:
-        displayText = 'Pratica - Dificil';
-        break;
-
-      default:
-        displayText = 'This wasnt supposed to happen!';
-        break;
+  // Update game state and display text based on difficulty
+  useEffect(() => {
+    if (picked_difficulty > 0) {
+      set_game_is_over(false);
+      switch (picked_difficulty) {
+        case 1:
+          setDisplayText("Pratica - Facil");
+          break;
+        case 2:
+          setDisplayText("Pratica - Medio");
+          break;
+        case 3:
+          setDisplayText("Pratica - Dificil");
+          break;
+        default:
+          setDisplayText("This wasn't supposed to happen!");
+      }
     }
+  }, [picked_difficulty]);
+
 
     // input detection things also saving the number of inputs sent by the player
 
@@ -148,6 +151,7 @@ export default function PagePractice()
       const start_time = Date.now() //this represents the current time the rhythm has started it will be used as a base to calculate all other future timings
       console.log(`the initial time is ${start_time}`)
       set_isPlaying(true)
+      
 
       const playNextNote =  (noteIndex: number) =>  // this is a recursive function that takes the current index and checks if the current index is the last one! if not we will keep navigating through the whole array
         {
@@ -199,11 +203,18 @@ export default function PagePractice()
     useEffect(() => {
       let TotalTime = 0;
       rhythm.forEach((Note) => {TotalTime += Note.time})
-      set_progress_animation_duration(TotalTime)
+      set_progress_animation_duration(TotalTime) // this controls the progress_bar_animation
     }, [])
 
-    // Player Stats stuff - saving the number of inputs sent by the player and comparing how accurate they are
-
+    useEffect(() => 
+      {
+        if(notes_played == total_notes)
+          {
+            set_game_is_over(true)
+          }
+      }, [notes_played, total_notes])
+    // Player Stats stuff - showing how well they did!
+    
 
     return (
         <>
@@ -258,159 +269,146 @@ export default function PagePractice()
 
                     }
                     {/*** Rhythm Component gets loaded up! */}
-                    { picked_difficulty > 0 
+                    {picked_difficulty > 0 ? (
+                        <>
+                          {/* this is the element for the header */}
+                          <div
+                            className="Sheet_Space_Header"
+                            style={{
+                              backgroundColor: timeDifferenceColor,
+                              textAlign: "center",
+                              borderBlockStyle: "solid",
+                              borderBlockWidth: 3,
+                              borderBlockColor: timeDifferenceColor,
+                              width: "100%",
+                              color: "white",
+                            }}
+                          >
+                            <h1> {displayText} </h1>
+                          </div>
 
-                      ?
+                          {!game_is_over ? (
+                            <>
+                              <div className="Sheet_Space" style={{ borderColor: timeDifferenceColor }}>
+                                {/* this is the div for the progress bar */}
+                                <Progress_bar
+                                  notes_played={notes_played}
+                                  total_notes={total_notes}
+                                  total_inputs={total_inputs}
+                                />
 
-                      <>
-                              {/** this is the element for the header */}
-                              <div className="Sheet_Space_Header" style={{backgroundColor: timeDifferenceColor, textAlign: 'center', borderBlockStyle: 'solid', borderBlockWidth: 3, borderBlockColor: timeDifferenceColor, width: '100%', color: 'white'}}>
-                                            <h1> {displayText} </h1>
-                              </div>
-                                    
-                              
-
-                              <div className="Sheet_Space" style={{borderColor: timeDifferenceColor}}>
-
-                                  {/*** this is the div for the progress bar */}
-                                  <Progress_bar
-                                    notes_played={notes_played}
-                                    total_notes={total_notes}
-                                    total_inputs={total_inputs}         
-                                    />
-                                  
-
-                                  {/*** below me is a div that represents the space of the sheet area */}
-                                  <div 
-                                  style=
-                                  {{
+                                {/* below me is a div that represents the space of the sheet area */}
+                                <div
+                                  style={{
                                     marginTop: 40,
-                                    position: 'relative', 
+                                    position: "relative",
                                     height: "100%",
                                     width: "95%",
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                  }}>
-
-                                    
-                                      {/*** this is the div for the main visible area of the sheet space the muscial sheet itself */}
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    display: "flex",
+                                  }}
+                                >
+                                  {/* this is the div for the main visible area of the sheet space the musical sheet itself */}
+                                  <div
+                                    className="Sheet_Area_Page"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "row",
+                                      justifyContent: "space-between",
+                                      gap: 30,
+                                      justifySelf: "center",
+                                      alignSelf: "center",
+                                      marginTop: 40,
+                                      marginBottom: 40,
+                                      backgroundColor: "#292929",
+                                      height: "90%",
+                                      width: "100%",
+                                      position: "absolute",
+                                      zIndex: 1,
+                                      padding: 3,
+                                      borderColor: "#ff9491",
+                                      borderStyle: "solid",
+                                      borderRadius: 10,
+                                    }}
+                                  >
+                                    {/* Renders an animation that works to tell the user where they are! */}
+                                    {isPlaying && (
                                       <div
-                                        className="Sheet_Area_Page"
-                                
-                                        style=
-                                        {{
-                                          display: 'flex',
-                                          flexDirection: 'row',
-                                          justifyContent: 'space-between',
-                                          gap: 30,       
-                                          justifySelf: 'center',
-                                          alignSelf: 'center',                      
-                                          marginTop: 40,
-                                          marginBottom: 40,
-                                          backgroundColor: '#292929',
-                                          height: "90%",
-                                          width: "100%",
-                                          position: 'absolute',
-                                          zIndex: 1,
-                                          padding: 3,
-                                          borderColor: '#ff9491',
-                                          borderStyle: 'solid',
-                                          borderRadius: 10,
-                                        }}>   
+                                        className="Sheet_Current_Position"
+                                        id="Sheet_Current_Position"
+                                        style={{
+                                          transition: `left ${rhythm[current_note]?.time || 500}ms linear`,
+                                          left: `${(current_note / (rhythm.length - 1)) * 100}%`,
+                                        }}
+                                      ></div>
+                                    )}
 
-
-                                        {/** Renders an animation that works to tell the user where they are! */}
-                                        
-                                        {
-                                          isPlaying &&
-                                          <div
-                                          className="Sheet_Current_Position"
-                                          id="Sheet_Current_Position"
-                                          style=
-                                          {{
-                                              transition: `left ${rhythm[current_note]?.time || 500}ms linear`,
-                                              left: `${((current_note) / (rhythm.length - 1)) * 100}%`
-                                              
-                                          }}
-
-                                          >
-                                          </div>
-                                        } 
-
-
-
-                                        {/** Logic for rendering the rhythm squares! */}
-                                        {
-                                              rhythm.map((note, index) => (
-                                              <div
-                                                  key={index}
-                                                  style={{
-                                                    width: "50px",
-                                                    height: "50px",
-                                                    backgroundColor: index == current_note ? "#7aeb57" : "#fc5549",
-                                                    transition: "background-color 0.2s ease",
-
-                                                  }}
-                                                >
-                                                    {/* You can display some content here */}
-                                              </div>
-                                        ))}
-
-                                      </div> 
-
-                                      {/*** this is the div for the effect that renders below the main visible area*/}
-                                      { toggle_effect &&
-                                      <div 
-                                          className="Sheet_Area_Effect"
-                                          id="Sheet_Area_Animation"
-                                          style=
-                                              {{
-                                                marginTop: 40,
-                                                marginBottom: 40,
-                                                height: "90%",
-                                                width: "95%",
-                                                position: 'absolute',
-                                                zIndex: 0
-                                          }}>                              
-                                      </div>  
-                                      }
-
-                                                                      
+                                    {/* Logic for rendering the rhythm squares! */}
+                                    {rhythm.map((note, index) => (
+                                      <div
+                                        key={index}
+                                        style={{
+                                          width: "50px",
+                                          height: "50px",
+                                          backgroundColor: index === current_note ? "#7aeb57" : "#fc5549",
+                                          transition: "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        {/* You can display some content here */}
+                                      </div>
+                                    ))}
                                   </div>
 
+                                  {/* this is the div for the effect that renders below the main visible area */}
+                                  {toggle_effect && (
+                                    <div
+                                      className="Sheet_Area_Effect"
+                                      id="Sheet_Area_Animation"
+                                      style={{
+                                        marginTop: 40,
+                                        marginBottom: 40,
+                                        height: "90%",
+                                        width: "95%",
+                                        position: "absolute",
+                                        zIndex: 0,
+                                      }}
+                                    ></div>
+                                  )}
+                                </div>
 
-
-                                    {/*** this is the div that contains the button to go back to the initial page state!*/}
-                                    <div style={{display: 'flex',width: "90%", alignContent: 'center', height: 50, justifyContent: 'center', gap:"20%", paddingBottom: 40}}>
-
-                                        {
-
-                                          isPlaying == true ?
-                                            <Button
-                                                  handleClick={() => stopRhythm() }
-                                                  text={"Retornar"}
-                                            />
-                                                                                   
-                                          :
-                                            <Button
-                                                handleClick={() => startRhythm()}
-                                                text={"Comecar"}
-                                            />
-                                      }
-
-                                    </div>
-                                
-                              </div>                     
+                                {/* this is the div that contains the button to go back to the initial page state! */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "90%",
+                                    alignContent: "center",
+                                    height: 50,
+                                    justifyContent: "center",
+                                    gap: "20%",
+                                    paddingBottom: 40,
+                                  }}
+                                >
+                                  {isPlaying ? (
+                                    <Button handleClick={() => stopRhythm()} text={"Retornar"} />
+                                  ) : (
+                                    <Button handleClick={() => startRhythm()} text={"Comecar"} />
+                                  )}
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            // else we just don't render anything.... obvious comment for better readability
+                            <>
+                              {/* Render nothing here */}
+                            </>
+                          )}
                         </>
-
-                      : //else we just dont render anything.... obvious comment for better readability
-
+                      ) : (
                         <>
+                          {/* code for the game over screen */}
                         </>
-
-                    }
-
+                      )}
             </div>
           </div>
         </>
