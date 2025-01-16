@@ -4,6 +4,7 @@ import { rhythm } from "../rhythm-data/rhythm-data";
 import Progress_bar from "../components/progress_bar";
 import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
+import Sheet_space_header from "../components/sheet_space_header";
 
 
 export default function PagePractice()
@@ -227,32 +228,19 @@ export default function PagePractice()
                           setPickedDifficulty={set_picked_difficulty}
                         />       
                     </>
-
                     :
-
                     <>
                     </>
-
-
                     }
+
                     {/*** Rhythm Component gets loaded up! */}
                     {picked_difficulty > 0 ? (
                         <>
                           {/* this is the element for the header */}
-                          <div
-                            className="Sheet_Space_Header"
-                            style={{
-                              backgroundColor: timeDifferenceColor,
-                              textAlign: "center",
-                              borderBlockStyle: "solid",
-                              borderBlockWidth: 3,
-                              borderBlockColor: timeDifferenceColor,
-                              width: "100%",
-                              color: "white",
-                            }}
-                          >
-                            <h1> {displayText} </h1>
-                          </div>
+                          <Sheet_space_header
+                          timeDifferenceColor={timeDifferenceColor}
+                          displayText={displayText}
+                          />
 
                           {!game_is_over ? (
                             <>
