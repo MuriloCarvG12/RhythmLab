@@ -6,7 +6,7 @@ import Difficulty_picker_screen from "../components/difficulty_picker_screen";
 import Sheet_space_header from "../components/sheet_space_header";
 import Main_game from "../components/main_game";
 import Button from "../components/button";
-
+import Game_over_screen from "../components/game_over_screen";
 
 export default function PagePractice()
 {
@@ -245,7 +245,13 @@ export default function PagePractice()
           set_game_over_text("Você acertou mais que 90% Excelente!")
         }
       }, [percentage_right_notes])
-    
+
+    /** Visual Stuff Below 
+     *   |
+     *   |
+     *  \_/
+     *   
+    */
 
     return (
         <>
@@ -301,22 +307,15 @@ export default function PagePractice()
                             // else we render the code for the game over screen!
                             <>
                               <div className="Sheet_Space" style={{ borderColor: timeDifferenceColor }}>
-                                  <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
 
-                                      <h1 className='Titles-font' style={{color: '#fc7672'}}>Sua Performace - {game_over_text}</h1>
-                                      <h3 style={{color:'white'}}> Total de Inputs: {total_inputs} </h3>
-                                      <h3 style={{color:'white'}}> Total de inputs Corretos: {total_correct_input} </h3>
-                                      <h3 style={{color:'white'}}> Porcentagem de acertos : {percentage_right_notes.toFixed(2)} </h3>
-
-                                  </div>
-
-                                  <div> 
-                                    <Button
-                                      text={'Tentar Novamente'}
-                                      handleClick={stopRhythm}
-                                      />
-                                  </div>
-
+                                    <Game_over_screen
+                                      game_over_text={game_over_text}
+                                      total_inputs={total_inputs}
+                                      total_correct_input={total_correct_input}
+                                      percentage_right_notes={percentage_right_notes}
+                                      stopRhythm={stopRhythm}
+                                    />
+                                  
                               </div>
                             </>
                           )}
