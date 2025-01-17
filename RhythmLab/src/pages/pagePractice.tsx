@@ -218,11 +218,11 @@ export default function PagePractice()
 
     useEffect(() => {
       if (total_notes > 0) {
-        set_percentage_right_notes((total_correct_input / total_notes) * 100);
+        set_percentage_right_notes((total_correct_input / total_inputs) * 100); // considera o total de inputs corretos dividido pelo total de inputs
         
       }
 
-    }, [total_correct_input, total_notes]);
+    }, [total_correct_input, total_inputs]);
 
     const[game_over_text, set_game_over_text] = useState("I am the default Text!")
 
@@ -230,19 +230,19 @@ export default function PagePractice()
       {
         if(percentage_right_notes < 50)
           {
-            set_game_over_text("Lets try to improve!")
+            set_game_over_text("Podemos Melhorar!")
           }
         else if(percentage_right_notes >= 50 && percentage_right_notes < 75)
         {
-          set_game_over_text("Not bad!")
+          set_game_over_text("Nada Mal!")
         }
         else if(percentage_right_notes >= 75 && percentage_right_notes <= 90)
           {
-            set_game_over_text("You nailed it!")
+            set_game_over_text("Muito Bem!")
           }
         else
         {
-          set_game_over_text("You scored more than 90% well done!")
+          set_game_over_text("Você acertou mais que 90% Excelente!")
         }
       }, [percentage_right_notes])
     
@@ -301,11 +301,13 @@ export default function PagePractice()
                             // else we render the code for the game over screen!
                             <>
                               <div className="Sheet_Space" style={{ borderColor: timeDifferenceColor }}>
-                                  <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column'}}>
-                                      <h1 className='Titles-font'>Sua Performace - {game_over_text}</h1>
-                                      <h3>Total de Inputs: {total_inputs}</h3>
-                                      <h3>Total de inputs Corretos: {total_correct_input}</h3>
-                                      <h3>Porcentagem de acertos : {percentage_right_notes}</h3>
+                                  <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                                      <h1 className='Titles-font' style={{color: '#fc7672'}}>Sua Performace - {game_over_text}</h1>
+                                      <h3 style={{color:'white'}}> Total de Inputs: {total_inputs} </h3>
+                                      <h3 style={{color:'white'}}> Total de inputs Corretos: {total_correct_input} </h3>
+                                      <h3 style={{color:'white'}}> Porcentagem de acertos : {percentage_right_notes.toFixed(2)} </h3>
+
                                   </div>
 
                                   <div> 
