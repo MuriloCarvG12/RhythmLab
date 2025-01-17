@@ -5,7 +5,7 @@ import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
 import Sheet_space_header from "../components/sheet_space_header";
 import Main_game from "../components/main_game";
-import Button from "../components/button";
+
 import Game_over_screen from "../components/game_over_screen";
 
 export default function PagePractice()
@@ -70,7 +70,7 @@ export default function PagePractice()
         {
            // set_time_difference_effect(2) this means the player got the time wrong and will be rewarded with a red border color! he settimeout resets the color into the default one after 500ms
            setTimeDifferenceEffect(2)       
-          console.log('YOU FUCKING SUCK!');
+          console.log('Wrong input');
         }
 
         setTimeout(() => {
