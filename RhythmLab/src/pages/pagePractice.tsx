@@ -211,12 +211,36 @@ export default function PagePractice()
       }, [notes_played, total_notes])
     // Player Stats stuff - showing how well they did!
     const [percentage_right_notes, set_percentage_right_notes] = useState(0)
+
     useEffect(() => {
       if (total_notes > 0) {
         set_percentage_right_notes((total_correct_input / total_notes) * 100);
-        console.log("Percentage -> " + percentage_right_notes)
+        
       }
+      
     }, [total_correct_input, total_notes]);
+
+    const[game_over_text, set_game_over_text] = useState("I am the default Text!")
+
+    useState(() => 
+      {
+        if(percentage_right_notes < 50)
+          {
+            set_game_over_text("Lets try to improve!")
+          }
+        else if(percentage_right_notes >= 50 && percentage_right_notes < 75)
+        {
+          set_game_over_text("Not bad!")
+        }
+        else if(percentage_right_notes >= 75 && percentage_right_notes <= 90)
+          {
+            set_game_over_text("You nailed it!")
+          }
+        else
+        {
+          set_game_over_text("You scored more than 90% well done!")
+        }
+      })
     
 
     return (
@@ -274,7 +298,7 @@ export default function PagePractice()
                             <>
                               <div className="Sheet_Space" style={{ borderColor: timeDifferenceColor }}>
                                   <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column'}}>
-                                      <h1 className='Titles-font'>Sua Performace!</h1>
+                                      <h1 className='Titles-font'>Sua Performace - {game_over_text}</h1>
                                       <h3>Total de Inputs: {total_inputs}</h3>
                                       <h3>Porcentagem de acertos : {percentage_right_notes}</h3>
 
