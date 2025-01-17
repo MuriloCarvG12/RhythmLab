@@ -5,6 +5,7 @@ import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
 import Sheet_space_header from "../components/sheet_space_header";
 import Main_game from "../components/main_game";
+import Button from "../components/button";
 
 
 export default function PagePractice()
@@ -184,6 +185,9 @@ export default function PagePractice()
 
     function stopRhythm()
     {
+      set_total_correct_input(0)
+      set_percentage_right_notes(0)
+      set_total_inputs(0)
       set_notes_played(0)
       set_picked_difficulty(0)
       set_current_note(0)
@@ -211,12 +215,36 @@ export default function PagePractice()
       }, [notes_played, total_notes])
     // Player Stats stuff - showing how well they did!
     const [percentage_right_notes, set_percentage_right_notes] = useState(0)
+
     useEffect(() => {
       if (total_notes > 0) {
-        set_percentage_right_notes((total_correct_input / total_notes) * 100);
-        console.log("Percentage -> " + percentage_right_notes)
+        set_percentage_right_notes((total_correct_input / total_inputs) * 100); // considera o total de inputs corretos dividido pelo total de inputs
+        
       }
-    }, [total_correct_input, total_notes]);
+
+    }, [total_correct_input, total_inputs]);
+
+    const[game_over_text, set_game_over_text] = useState("I am the default Text!")
+
+    useEffect(() => 
+      {
+        if(percentage_right_notes < 50)
+          {
+            set_game_over_text("Podemos Melhorar!")
+          }
+        else if(percentage_right_notes >= 50 && percentage_right_notes < 75)
+        {
+          set_game_over_text("Nada Mal!")
+        }
+        else if(percentage_right_notes >= 75 && percentage_right_notes <= 90)
+          {
+            set_game_over_text("Muito Bem!")
+          }
+        else
+        {
+          set_game_over_text("Você acertou mais que 90% Excelente!")
+        }
+      }, [percentage_right_notes])
     
 
     return (
@@ -273,12 +301,22 @@ export default function PagePractice()
                             // else we render the code for the game over screen!
                             <>
                               <div className="Sheet_Space" style={{ borderColor: timeDifferenceColor }}>
-                                  <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column'}}>
-                                      <h1 className='Titles-font'>Sua Performace!</h1>
-                                      <h3>Total de Inputs: {total_inputs}</h3>
-                                      <h3>Porcentagem de acertos : {percentage_right_notes}</h3>
+                                  <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                                      <h1 className='Titles-font' style={{color: '#fc7672'}}>Sua Performace - {game_over_text}</h1>
+                                      <h3 style={{color:'white'}}> Total de Inputs: {total_inputs} </h3>
+                                      <h3 style={{color:'white'}}> Total de inputs Corretos: {total_correct_input} </h3>
+                                      <h3 style={{color:'white'}}> Porcentagem de acertos : {percentage_right_notes.toFixed(2)} </h3>
 
                                   </div>
+
+                                  <div> 
+                                    <Button
+                                      text={'Tentar Novamente'}
+                                      handleClick={stopRhythm}
+                                      />
+                                  </div>
+
                               </div>
                             </>
                           )}
