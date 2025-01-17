@@ -5,6 +5,7 @@ import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
 import Sheet_space_header from "../components/sheet_space_header";
 import Main_game from "../components/main_game";
+import Button from "../components/button";
 
 
 export default function PagePractice()
@@ -184,6 +185,9 @@ export default function PagePractice()
 
     function stopRhythm()
     {
+      set_total_correct_input(0)
+      set_percentage_right_notes(0)
+      set_total_inputs(0)
       set_notes_played(0)
       set_picked_difficulty(0)
       set_current_note(0)
@@ -217,12 +221,12 @@ export default function PagePractice()
         set_percentage_right_notes((total_correct_input / total_notes) * 100);
         
       }
-      
+
     }, [total_correct_input, total_notes]);
 
     const[game_over_text, set_game_over_text] = useState("I am the default Text!")
 
-    useState(() => 
+    useEffect(() => 
       {
         if(percentage_right_notes < 50)
           {
@@ -240,7 +244,7 @@ export default function PagePractice()
         {
           set_game_over_text("You scored more than 90% well done!")
         }
-      })
+      }, [percentage_right_notes])
     
 
     return (
@@ -300,9 +304,17 @@ export default function PagePractice()
                                   <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column'}}>
                                       <h1 className='Titles-font'>Sua Performace - {game_over_text}</h1>
                                       <h3>Total de Inputs: {total_inputs}</h3>
+                                      <h3>Total de inputs Corretos: {total_correct_input}</h3>
                                       <h3>Porcentagem de acertos : {percentage_right_notes}</h3>
-
                                   </div>
+
+                                  <div> 
+                                    <Button
+                                      text={'Tentar Novamente'}
+                                      handleClick={stopRhythm}
+                                      />
+                                  </div>
+
                               </div>
                             </>
                           )}
