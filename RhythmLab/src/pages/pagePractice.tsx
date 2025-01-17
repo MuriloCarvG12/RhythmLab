@@ -5,7 +5,6 @@ import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
 import Sheet_space_header from "../components/sheet_space_header";
 import Main_game from "../components/main_game";
-
 import Game_over_screen from "../components/game_over_screen";
 
 export default function PagePractice()

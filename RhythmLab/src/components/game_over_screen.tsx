@@ -16,7 +16,8 @@ export default function Game_over_screen({game_over_text, total_inputs, total_co
         <>
             <div className="Player-Stats" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             
-                        <h1 className='Titles-font' style={{color: '#fc7672'}}>{`Sua Performace - ${game_over_text}`}</h1>
+                        <h1 className='Titles-font' style={{color: '#fc7672'}}>{`Sua Performace`}</h1>
+                        <h1 className='Titles-font' style={{color: '#fc7672', marginBottom: 50}}> {`${game_over_text}`} </h1>
                         <h3 style={{color:'white'}}> Total de Inputs: {total_inputs} </h3>
                         <h3 style={{color:'white'}}> Total de inputs Corretos: {total_correct_input} </h3>
                         <h3 style={{color:'white'}}> Porcentagem de acertos : {percentage_right_notes.toFixed(2)} </h3>
