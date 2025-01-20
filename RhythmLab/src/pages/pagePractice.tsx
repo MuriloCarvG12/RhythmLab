@@ -14,6 +14,46 @@ export default function PagePractice()
     const [picked_difficulty, set_picked_difficulty] = useState(0) // stores the difficulty picked
     const [displayText, setDisplayText] = useState("Selecione uma dificuldade");
     
+    function generateRhythm(rhythmData, total_difficulty_notes :number)
+    {
+      const rhythm = [];
+      let current_number_notes = 1;
+    
+      while (current_number_notes <= total_difficulty_notes) {
+        const randomIndex = Math.floor(Math.random() * rhythmData.length);
+        const note = rhythmData[randomIndex];
+
+        rhythm.push(note);
+        current_number_notes++;
+      }
+      console.log(rhythm)
+      return rhythm;
+    }
+
+    function generateRhythmForDifficulty(difficulty:number) {
+      let rhythmData;
+      let total_difficulty_notes = 0;
+
+      if (difficulty == 1) 
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_easy
+      } 
+
+      else if (difficulty == 2)
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_medium
+      } 
+
+      else if (difficulty == 3) 
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_hard
+      }
+    
+      return generateRhythm(rhythmData, total_difficulty_notes);
+    }
 
   // Update game state and display text based on difficulty
   useEffect(() => {
@@ -33,32 +73,6 @@ export default function PagePractice()
           setDisplayText("This wasn't supposed to happen!");
       }
     }
-    
-    function generateRhythmForDifficulty(difficulty:string, total_difficulty_notes: number) {
-      let rhythmData;
-    
-      if (difficulty === "easy") 
-      {
-        total_difficulty_notes = 6
-        rhythmData = rhythm.rhythm_easy
-      } 
-
-      else if (difficulty === "medium") 
-      {
-        total_difficulty_notes = 6
-        rhythmData = rhythm.rhythm_medium
-      } 
-
-      else if (difficulty === "hard") 
-      {
-        total_difficulty_notes = 6
-        rhythmData = rhythm.rhythm_hard
-      }
-    
-      return generateRhythm(rhythmData, total_difficulty_notes);
-    }
-
-
   }, [picked_difficulty]);
 
 
@@ -321,7 +335,7 @@ export default function PagePractice()
                                 {/* below me is a div that represents the space of the sheet area */}
                                 <Main_game
                                 isPlaying={isPlaying}
-                                rhythm={rhythm}
+                                rhythm={generateRhythmForDifficulty(picked_difficulty)}
                                 toggle_effect={toggle_effect}
                                 stopRhythm={stopRhythm}
                                 startRhythm={startRhythm}
