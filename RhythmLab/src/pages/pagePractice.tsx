@@ -9,12 +9,19 @@ import Game_over_screen from "../components/game_over_screen";
 
 export default function PagePractice()
 {
+    interface rhythm_array
+    {
+      type :string,
+      duration :string,
+      time :number
+    }
     // difficulty related things 
     const [game_is_over, set_game_is_over] = useState(true)
     const [picked_difficulty, set_picked_difficulty] = useState(0) // stores the difficulty picked
     const [displayText, setDisplayText] = useState("Selecione uma dificuldade");
+    const [game_rhythm, set_game_rhythm] = useState<rhythm_array[]> ([])
     
-    function generateRhythm(rhythmData, total_difficulty_notes :number)
+    function generateRhythm(rhythmData , total_difficulty_notes :number)
     {
       const rhythm = [];
       let current_number_notes = 1;
@@ -27,7 +34,7 @@ export default function PagePractice()
         current_number_notes++;
       }
       console.log(rhythm)
-      return rhythm;
+      set_game_rhythm(rhythm)
     }
 
     function generateRhythmForDifficulty(difficulty:number) {
@@ -62,12 +69,15 @@ export default function PagePractice()
       switch (picked_difficulty) {
         case 1:
           setDisplayText("Pratica - Facil");
+          generateRhythmForDifficulty(1)
           break;
         case 2:
           setDisplayText("Pratica - Medio");
+          generateRhythmForDifficulty(2)
           break;
         case 3:
           setDisplayText("Pratica - Dificil");
+          generateRhythmForDifficulty(3)
           break;
         default:
           setDisplayText("This wasn't supposed to happen!");
@@ -194,7 +204,7 @@ export default function PagePractice()
         {
           console.log("current index " + noteIndex)
         // first block below is our exit condition
-        if (noteIndex >= rhythm.length) {
+        if (noteIndex >= game_rhythm.length) {
           set_isPlaying(false); // stop playback when we reach the end of the rhythm array.
           return;
         }
@@ -202,7 +212,7 @@ export default function PagePractice()
         // if we are not in the last note then
          set_current_note(noteIndex) // Update the current note index.
          
-        const expected_time = start_time + Number(rhythm.slice(0,  noteIndex).reduce((sum, note) => sum + note.time, 0))
+        const expected_time = start_time + Number(game_rhythm.slice(0,  noteIndex).reduce((sum, note) => sum + note.time, 0))
         timeoutRef.current = expected_time;
         console.log(`the expected time is ${expected_time}`)
 
@@ -210,11 +220,11 @@ export default function PagePractice()
         window.setTimeout(() => {
           audio.play()
           console.log(timeoutRef)
-          console.log(`Current note ${noteIndex} is ${rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
+          console.log(`Current note ${noteIndex} is ${game_rhythm[noteIndex].type}`) // prints which note we are on this is our user feedback for now...
           playNextNote(noteIndex + 1); // Move to the next note.
           set_notes_played(noteIndex + 1)
 
-        }, Number(rhythm[noteIndex]?.time || 500));
+        }, Number(game_rhythm[noteIndex]?.time || 500));
 
         
       };
@@ -237,12 +247,12 @@ export default function PagePractice()
     }
 
     useEffect(() => {
-      set_total_notes(rhythm.length);
-    }, [rhythm]); // Only run when 'rhythm' changes // sets our total number of nots this will be used to manipulate the progress bar 
+      set_total_notes(game_rhythm.length);
+    }, [game_rhythm]); // Only run when 'rhythm' changes // sets our total number of nots this will be used to manipulate the progress bar 
 
     useEffect(() => {
       let TotalTime = 0;
-      rhythm.forEach((Note) => {TotalTime += Note.time})
+      game_rhythm.forEach((Note) => {TotalTime += Note.time})
       set_progress_animation_duration(TotalTime) // this controls the progress_bar_animation
     }, [])
 
@@ -335,7 +345,7 @@ export default function PagePractice()
                                 {/* below me is a div that represents the space of the sheet area */}
                                 <Main_game
                                 isPlaying={isPlaying}
-                                rhythm={generateRhythmForDifficulty(picked_difficulty)}
+                                rhythm={game_rhythm}
                                 toggle_effect={toggle_effect}
                                 stopRhythm={stopRhythm}
                                 startRhythm={startRhythm}
