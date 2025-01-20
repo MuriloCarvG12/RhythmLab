@@ -12,7 +12,7 @@ export default function PagePractice()
     interface rhythm_array
     {
       type :string,
-      duration :string,
+      color :string,
       time :number
     }
     // difficulty related things 
@@ -37,7 +37,8 @@ export default function PagePractice()
       set_game_rhythm(rhythm)
     }
 
-    function generateRhythmForDifficulty(difficulty:number) {
+    function generateRhythmForDifficulty(difficulty:number) // this function informs the generateRhythm function the array it should acess and also the total of notes it will generate!
+    {
       let rhythmData;
       let total_difficulty_notes = 0;
 
@@ -190,7 +191,7 @@ export default function PagePractice()
     const timeoutRef = useRef<number | null>(null);
     const [current_note, set_current_note] = useState(0)
     const [progress_animation_duration, set_progress_animation_duration] = useState(0) 
-    
+   
 
     function startRhythm() // this is a function that will handle the logic for knowing in which note we are on!
     {
@@ -211,6 +212,7 @@ export default function PagePractice()
 
         // if we are not in the last note then
          set_current_note(noteIndex) // Update the current note index.
+         
          
         const expected_time = start_time + Number(game_rhythm.slice(0,  noteIndex).reduce((sum, note) => sum + note.time, 0))
         timeoutRef.current = expected_time;
@@ -246,6 +248,7 @@ export default function PagePractice()
       
     }
 
+    
     useEffect(() => {
       set_total_notes(game_rhythm.length);
     }, [game_rhythm]); // Only run when 'rhythm' changes // sets our total number of nots this will be used to manipulate the progress bar 

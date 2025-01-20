@@ -3,21 +3,21 @@
 
 
 const rhythm_easy = [
-    { type: 'Whole Note', duration: 'Whole Note', time: 1000},
-    { type: 'Half Note', duration: "Half Note", time: 500},
+    { type: 'Whole Note', color: '#FF5733', time: 1000}, // color orange
+    { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
   ]
 
 const rhythm_medium = [
-  { type: 'Whole Note', duration: 'Whole Note', time: 1000},
-  { type: 'Half Note', duration: "Half Note", time: 500},
-  { type: 'Quarter Note', duration: "Half Note", time: 250}
+  { type: 'Whole Note', color: '#FF5733', time: 1000}, // color orange
+  { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
+  { type: 'Quarter Note', color: '#5733FF', time: 250} // color blue 
 ]
 
 const rhythm_hard = [
-  { type: 'Whole Note', duration: 'Whole Note', time: 1000},
-  { type: 'Half Note', duration: "Half Note", time: 500},
-  { type: 'Quarter Note', duration: "Quarter Note", time: 250},
-  { type: 'Eighth Note', duration: "Eighth Note", time: 125},
+  { type: 'Whole Note', color: '#FF5733', time: 1000}, // color orange
+  { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
+  { type: 'Quarter Note', color: '#5733FF', time: 250}, // color blue  
+  { type: 'Eighth Note', color: '#FFC300', time: 125}, // color  yellow 
 ]
 
 export default {rhythm_easy, rhythm_medium, rhythm_hard}
