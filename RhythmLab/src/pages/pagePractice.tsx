@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef  } from "react"
-import { rhythm } from "../rhythm-data/rhythm-data";
+import rhythm from "../rhythm-data/rhythm-data" ;
 import Progress_bar from "../components/progress_bar";
 import Header from "../components/header";
 import Difficulty_picker_screen from "../components/difficulty_picker_screen";
@@ -13,6 +13,7 @@ export default function PagePractice()
     const [game_is_over, set_game_is_over] = useState(true)
     const [picked_difficulty, set_picked_difficulty] = useState(0) // stores the difficulty picked
     const [displayText, setDisplayText] = useState("Selecione uma dificuldade");
+    
 
   // Update game state and display text based on difficulty
   useEffect(() => {
@@ -32,6 +33,32 @@ export default function PagePractice()
           setDisplayText("This wasn't supposed to happen!");
       }
     }
+    
+    function generateRhythmForDifficulty(difficulty:string, total_difficulty_notes: number) {
+      let rhythmData;
+    
+      if (difficulty === "easy") 
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_easy
+      } 
+
+      else if (difficulty === "medium") 
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_medium
+      } 
+
+      else if (difficulty === "hard") 
+      {
+        total_difficulty_notes = 6
+        rhythmData = rhythm.rhythm_hard
+      }
+    
+      return generateRhythm(rhythmData, total_difficulty_notes);
+    }
+
+
   }, [picked_difficulty]);
 
 
