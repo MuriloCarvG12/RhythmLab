@@ -3,7 +3,7 @@ import Button from "./button"
 interface rhythm
 {
     type: string
-    duration: string
+    color :string
     time : number
 }
 
@@ -75,7 +75,7 @@ export default function Main_game({isPlaying, rhythm, toggle_effect, stopRhythm,
                       style={{
                         width: '50px',
                         height: '50px',
-                        backgroundColor: index === current_note ? '#7aeb57' : '#fc5549',
+                        backgroundColor: index === current_note ? '#7aeb57' : `${rhythm[index].color}`,
                         transition: 'background-color 0.2s ease',
                       }}
                     >
