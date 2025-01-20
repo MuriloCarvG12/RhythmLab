@@ -1,8 +1,23 @@
-export const rhythm = [
-    { type: 'note1', duration: 'half', time: 2000},
-    { type: 'note2', duration: 'half', time: 2000},
-    { type: 'rest3', duration: 'half', time: 2000},
-    { type: 'note4', duration: 'half', time: 2000},
-    { type: 'note5', duration: 'half', time: 2000},
-    { type: 'note6', duration: 'half', time: 2000},
-  ];
+// This file contains all the data on the beats that will be used to generate sheets in our game!
+
+
+
+const rhythm_easy = [
+    { type: 'Whole Note', color: '#700aff', time: 1000}, // color purple
+    { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
+  ]
+
+const rhythm_medium = [
+  { type: 'Whole Note', color: '#700aff', time: 1000}, // color purple
+  { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
+  { type: 'Quarter Note', color: '#5733FF', time: 250} // color blue 
+]
+
+const rhythm_hard = [
+  { type: 'Whole Note', color: '#700aff', time: 1000}, // color purple
+  { type: 'Half Note', color: '#ff12ef', time: 500}, // color pink
+  { type: 'Quarter Note', color: '#5733FF', time: 250}, // color blue  
+  { type: 'Eighth Note', color: '#FFC300', time: 125}, // color  yellow 
+]
+
+export default {rhythm_easy, rhythm_medium, rhythm_hard}
