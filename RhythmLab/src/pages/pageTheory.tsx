@@ -31,9 +31,9 @@ export default function PageTheory()
                   />
             </div>
             <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font"> Talk about what are metronomes here </p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about what are bpms and their importance in music</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about how metronomes are used to keep track of the bpm</p></div>
             </div>
 
             {/** hese are the divs for the musical staffs*/}
@@ -45,9 +45,9 @@ export default function PageTheory()
                   />
             </div>
             <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about what are musical sheets here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk Clef staffs here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk Bass staffs here</p></div>
             </div>
 
             {/** These are the divs for the Note Type Theory */}
@@ -58,9 +58,8 @@ export default function PageTheory()
                   />
             </div>
             <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about the different duration of notes here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about the benefits that different types of notes bring </p></div>               
             </div>
 
             {/** These are the divs for the Note Type Theory */}
@@ -71,12 +70,12 @@ export default function PageTheory()
                   />
             </div>
               <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"><p>Teste</p></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
-                    <div className="row-item-container"></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about Whole Notes here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about Half Notes here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about Quarter Notes here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about Eighth Notes here</p></div>
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about Sixteenth Notes here</p></div>
+                    
               </div>
 
           </div>
