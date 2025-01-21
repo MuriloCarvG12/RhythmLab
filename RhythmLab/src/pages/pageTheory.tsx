@@ -13,12 +13,12 @@ export default function PageTheory()
 
               <div className='Paragraph'>
                 <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Bem vindo a pagina Teoria! </p>
-                <p> Na pagina teoria você podera encontrar explicações sobre os principais conceitos a respeito de ritmos utilizados para musica</p>
+                <p> Na pagina teoria você podera encontrar explicações sobre os principais conceitos a respeito de ritmos utilizados para música</p>
                 <p className='Titles-font' style={{fontSize:30, opacity: 1}}> O que será apresentado: </p>
                 <p> Metrônomo: Uma ferramenta para manter e acompanhar o ritmo </p>
-                <p> Pautas Musicais </p>
+                <p> Pautas Músicais </p>
                 <p> O que são os tipos de notas e seus usos</p>
-                <p> Os diferentes tipos de notas presentes na musica</p>
+                <p> Os diferentes tipos de notas presentes na música</p>
                 
 
               </div>
@@ -26,7 +26,7 @@ export default function PageTheory()
               
               <div style={{width: "80.3%", marginTop: 40}}>
                   <Sheet_space_header
-                  displayText="Teoria Para Ritmos"
+                  displayText="Diferentes tipos de Notas"
                   timeDifferenceColor="#F0544F"
                   />
               </div>
