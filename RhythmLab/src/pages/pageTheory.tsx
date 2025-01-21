@@ -1,5 +1,8 @@
 import Header from "../components/header"
 import Sheet_space_header from "../components/sheet_space_header"
+import { TimeOutline  } from 'react-ionicons'
+import { MenuOutline } from 'react-ionicons'
+import { MusicalNoteOutline } from 'react-ionicons'
 
 export default function PageTheory()
 {
@@ -12,15 +15,21 @@ export default function PageTheory()
               </div>
 
               <div className='Paragraph'>
-                <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Bem vindo a pagina Teoria! </p>
-                <p> Na pagina teoria você podera encontrar explicações sobre os principais conceitos a respeito de ritmos utilizados para música</p>
-                <p className='Titles-font' style={{fontSize:30, opacity: 1}}> O que será apresentado: </p>
-                <p> Metrônomo: Uma ferramenta para manter e acompanhar o ritmo </p>
-                <p> Pautas Músicais </p>
-                <p> O que são os tipos de notas e seus usos</p>
-                <p> Os diferentes tipos de notas presentes na música</p>
-                
 
+                <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Bem vindo a Pagina Teoria! </p>
+
+                <p> Na pagina teoria você podera encontrar explicações sobre os principais conceitos a respeito de ritmos utilizados para música</p>
+                <br></br>
+                <p className='Titles-font' style={{fontSize:30, opacity: 1}}> O que será apresentado? </p>
+                <br></br>
+                <p> <TimeOutline  color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Metrônomo:</text> <text>Uma ferramenta para manter e acompanhar o ritmo </text></p>
+                <br></br>
+                <p> <MenuOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Pautas Musicais:</text> <text>O que são e as diferenças entra a pauta Clef e Bass </text></p>
+                <br></br>
+                <p> <MusicalNoteOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Notas Musicais:</text> <text>O que são e os seus usos </text></p>
+                <br></br>
+                <p> <MusicalNoteOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Tipos de Notas:</text> <text>Os Principais tipos de notas presentes na música </text></p> 
+                <br></br>
               </div>
 
             {/** these are the divs for the metronome explanation */}
@@ -40,7 +49,7 @@ export default function PageTheory()
 
             <div style={{width: "80.3%", marginTop: 40}}>
                   <Sheet_space_header
-                  displayText="O que são os pautas músicais"
+                  displayText="O que são os Pautas Musicais?"
                   timeDifferenceColor="#F0544F"
                   />
             </div>
@@ -53,7 +62,7 @@ export default function PageTheory()
             {/** These are the divs for the Note Type Theory */}
             <div style={{width: "80.3%", marginTop: 40}}>
                   <Sheet_space_header
-                  displayText="O que são os tipos de Notas?"
+                  displayText="O que são os Tipos de Notas?"
                   timeDifferenceColor="#F0544F"
                   />
             </div>
