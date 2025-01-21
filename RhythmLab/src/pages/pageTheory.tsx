@@ -22,14 +22,55 @@ export default function PageTheory()
                 <br></br>
                 <p className='Titles-font' style={{fontSize:30, opacity: 1}}> O que será apresentado? </p>
                 <br></br>
-                <p> <TimeOutline  color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Metrônomo:</text> <text>Uma ferramenta para manter e acompanhar o ritmo </text></p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', justifySelf: 'center' }}>
+                    <TimeOutline color={'#F0544F'} title={'text'} height="19px" width="25px" />
+                    <text className="Titles-font" style={{ fontSize: '23px', opacity: 1 }}>Metrônomo:</text>
+                    <text>Uma ferramenta para manter e acompanhar o ritmo</text>
+                  </p>
+
+                </div>
+
                 <br></br>
-                <p> <MenuOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Pautas Musicais:</text> <text>O que são e as diferenças entra a pauta Clef e Bass </text></p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', justifySelf: 'center' }}>
+                    <MenuOutline color={'#F0544F'} title={'text'} height="19px" width="25px" />
+                    <text className="Titles-font" style={{ fontSize: '23px', opacity: 1 }}>Pautas Musicais:</text>
+                    <text>O que são e as diferenças entra a pauta Clef e Bass</text>
+                  </p>
+                  
+                </div>
+
                 <br></br>
-                <p> <MusicalNoteOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Notas Musicais:</text> <text>O que são e os seus usos </text></p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', justifySelf: 'center' }}>
+                    <MusicalNoteOutline color={'#F0544F'} title={'text'} height="19px" width="25px" />
+                    <text className="Titles-font" style={{ fontSize: '23px', opacity: 1 }}>Notas Musicais:</text>
+                    <text>O que são e os seus usos</text>
+                  </p>
+                  
+                </div>
+
                 <br></br>
-                <p> <MusicalNoteOutline color={'#00000'} title={'text'} height="25px" width="25px"/> <text className='Titles-font' style={{fontSize:23, opacity: 1}}> Tipos de Notas:</text> <text>Os Principais tipos de notas presentes na música </text></p> 
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+                  <p style={{ display: 'flex', alignItems: 'center', gap: '8px', justifySelf: 'center' }}>
+                    <MusicalNoteOutline color={'#F0544F'} title={'text'} height="19px" width="25px" />
+                    <text className="Titles-font" style={{ fontSize: '23px', opacity: 1 }}>Tipos de Notas:</text>
+                    <text>Os Principais tipos de notas presentes na música</text>
+                  </p>
+                  
+                </div>
+                
                 <br></br>
+
               </div>
 
             {/** these are the divs for the metronome explanation */}
