@@ -46,7 +46,7 @@ export default function PageHome()
                 </p>
 
             </div>
-            <div className='row-item-container'>
+            <div className='row-item-container' >
 
                 
 
