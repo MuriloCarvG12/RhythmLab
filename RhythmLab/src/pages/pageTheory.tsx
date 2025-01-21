@@ -22,18 +22,56 @@ export default function PageTheory()
                 
 
               </div>
-              
-              
-              <div style={{width: "80.3%", marginTop: 40}}>
+
+            {/** these are the divs for the metronome explanation */}
+            <div style={{width: "80.3%", marginTop: 40}}>
+                  <Sheet_space_header
+                  displayText="O que são Metronomos?"
+                  timeDifferenceColor="#F0544F"
+                  />
+            </div>
+            <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+            </div>
+
+            {/** hese are the divs for the musical staffs*/}
+
+            <div style={{width: "80.3%", marginTop: 40}}>
+                  <Sheet_space_header
+                  displayText="O que são os pautas músicais"
+                  timeDifferenceColor="#F0544F"
+                  />
+            </div>
+            <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+            </div>
+
+            {/** These are the divs for the Note Type Theory */}
+            <div style={{width: "80.3%", marginTop: 40}}>
+                  <Sheet_space_header
+                  displayText="O que são os tipos de Notas?"
+                  timeDifferenceColor="#F0544F"
+                  />
+            </div>
+            <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+                    <div className="row-item-container"></div>
+            </div>
+
+            {/** These are the divs for the Note Type Theory */}
+            <div style={{width: "80.3%", marginTop: 40}}>
                   <Sheet_space_header
                   displayText="Diferentes tipos de Notas"
                   timeDifferenceColor="#F0544F"
                   />
-              </div>
-
-
+            </div>
               <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"></div>
+                    <div className="row-item-container"><p>Teste</p></div>
                     <div className="row-item-container"></div>
                     <div className="row-item-container"></div>
                     <div className="row-item-container"></div>
