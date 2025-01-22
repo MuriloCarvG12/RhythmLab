@@ -123,31 +123,31 @@ export default function PageTheory()
               <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
 
                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
-                        <img src="../.././public/note_durations_symbols/whole-note.png" style={{width:200, height: 200}}></img>
+                        <img src="../.././public/note_durations_symbols/whole_note.png" style={{width:200, height: 200}}></img>
                         <p className="Theory-Paragraph-Font">Nota Inteira (Semibreve):</p>
                         <p className="Theory-Paragraph-Font">Representa a duração mais longa entre essas notas.</p>
                     </div>
 
                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
-                        <img src="../.././public/note_durations_symbols/half note.jpg" style={{width:200, height: 200}}></img>
+                        <img src="../.././public/note_durations_symbols/half_note.png" style={{width:200, height: 200}}></img>
                         <p className="Theory-Paragraph-Font">Meia Nota (Mínima):</p>
                         <p className="Theory-Paragraph-Font">Vale metade da duração de uma semibreve</p>
                     </div>
 
                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
-                      <img src="../.././public/note_durations_symbols/quarter-note.jpg" style={{width:200, height: 200}}></img>
+                      <img src="../.././public/note_durations_symbols/quarter_note.png" style={{width:200, height: 200}}></img>
                       <p className="Theory-Paragraph-Font">Semínima (Quarter Note):</p>
                       <p className="Theory-Paragraph-Font">É a unidade de tempo mais comum em muitos estilos de música.</p>
                     </div>
                     
                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
-                      <img src="../.././public/note_durations_symbols/eight note.png" style={{width:200, height: 200}}></img>
+                      <img src="../.././public/note_durations_symbols/eight_note.png" style={{width:200, height: 200}}></img>
                       <p className="Theory-Paragraph-Font">Colcheia (Eighth Note):</p>
                       <p className="Theory-Paragraph-Font">É mais curta que a semínima, valendo meio tempo.</p>
                     </div>
                     
                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
-                        <img src="../.././public/note_durations_symbols/sixteenth note.png" style={{width:200, height: 200}}></img>
+                        <img src="../.././public/note_durations_symbols/sixteenth_note.png" style={{width:200, height: 200}}></img>
                         <p className="Theory-Paragraph-Font">Semicolcheia (Sixteenth Note):</p>
                         <p className="Theory-Paragraph-Font"> ainda mais curta, valendo um quarto de tempo.</p>
                     </div>
