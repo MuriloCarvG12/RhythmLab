@@ -109,8 +109,41 @@ export default function PageTheory()
                   />
             </div>
             <div className="metronome-body" style={{width: '80%', height: 'auto', display: 'flex', flexDirection: 'column', paddingTop: 40}}>
-                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about the different duration of notes here</p></div>
-                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Talk about the benefits that different types of notes bring </p></div>               
+                    <div className="row-item-container"><p className="Theory-Paragraph-Font">Em teoria musical, as notas representam a altura e a duração de um som. Elas são os blocos fundamentais da música e podem ser categorizadas com base em sua duração (quanto tempo elas duram) e sua altura (quão agudo ou grave elas soam). Aqui está uma descrição dos tipos de notas e seus usos:</p></div>
+                    <div className="row-item-container">
+                      <p className="Theory-Paragraph-Font">Tipos de Notas por Duração </p>
+                    </div>
+
+                    <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
+                      <p className="Theory-Paragraph-Font">Nota Inteira (Semibreve)</p>
+                      <p className="Theory-Paragraph-Font">Duração: Quatro tempos (em compasso 4/4).</p>
+                      <p className="Theory-Paragraph-Font">Uso: Frequentemente usada para tons sustentados em passagens lentas ou para estabelecer as bases harmônicas nas composições.</p>
+                    </div>    
+
+                    <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
+                      <p className="Theory-Paragraph-Font">Meia Nota (Mínima)</p>
+                      <p className="Theory-Paragraph-Font">Duração: Dois tempos (em compasso 4/4).</p>
+                      <p className="Theory-Paragraph-Font">Uso: Oferece um equilíbrio entre tons sustentados e notas mais curtas, sendo frequentemente usada em melodias e harmonias.</p>
+                    </div>     
+
+                     <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
+                      <p className="Theory-Paragraph-Font">Semínima (Crotchete)</p>
+                      <p className="Theory-Paragraph-Font">Duração: Um tempo (em compasso 4/4).</p>
+                      <p className="Theory-Paragraph-Font">Uso: Forma a base do ritmo em muitos estilos de música, funcionando como o pulso padrão.</p>
+                    </div>    
+
+                    <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
+                      <p className="Theory-Paragraph-Font">Colcheia (Quaver)</p>
+                      <p className="Theory-Paragraph-Font">Duração: Meio tempo (em compasso 4/4).</p>
+                      <p className="Theory-Paragraph-Font">Uso: Adiciona variedade rítmica, usada em passagens mais rápidas ou para criar síncope.</p>
+                    </div>    
+
+                    <div className="row-item-container" style={{display:'flex', flexDirection: 'column', gap: 20}}>
+                      <p className="Theory-Paragraph-Font">Semicolcheia (Semiquaver)</p>
+                      <p className="Theory-Paragraph-Font">Duração: Um quarto de tempo (em compasso 4/4).</p>
+                      <p className="Theory-Paragraph-Font">Uso: Comum em melodias rápidas, ornamentos e ritmos intricados.</p>
+                    </div>             
+                    
             </div>
 
             {/** These are the divs for the Note Type Theory */}
