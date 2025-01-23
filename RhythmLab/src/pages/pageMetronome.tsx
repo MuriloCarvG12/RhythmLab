@@ -58,13 +58,8 @@ export default function PageMetronome()
             <div className='row-item-container'>
              
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(50)}}></button>
-                    <h3 style={{color: 'orange'}}> 50 Bpm </h3>
-                </div>
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(80)}}></button>
-                    <h3 style={{color: 'orange'}}> 80 Bpm </h3>
+                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(60)}}></button>
+                    <h3 style={{color: 'orange'}}> 60 Bpm </h3>
                 </div>
 
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -72,15 +67,20 @@ export default function PageMetronome()
                     <h3 style={{color: 'orange'}}> 90 Bpm </h3>
                 </div>
 
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50 }} onClick={() => {set_time(100)}}></button>
-                    <h3 style={{color: 'orange'}} > 100 Bpm </h3>
-                </div>
-
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(120)}}></button>
                     <h3 style={{color: 'orange'}}> 120 Bpm </h3>
+                </div>
+
+
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <button className='button' style={{width: 100, height: 50 }} onClick={() => {set_time(150)}}></button>
+                    <h3 style={{color: 'orange'}} > 150 Bpm </h3>
+                </div>
+
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(180)}}></button>
+                    <h3 style={{color: 'orange'}}> 180 Bpm </h3>
                 </div>               
             </div>
 
@@ -106,7 +106,7 @@ export default function PageMetronome()
             }
             }>
 
-            <h1 style={{fontFamily: 'sans-serif'}}> Or find your own Time!</h1>
+            <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Encontre a sua BPM desejada aqui!</p>
             <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
 
             </div>
@@ -124,7 +124,7 @@ export default function PageMetronome()
                         >
 
                             
-                            <h1 className='Title-Font'> Current Time = {time} </h1>
+                            <text  className='Titles-font' style={{fontSize:30, opacity: 1}}> Current Time = {time} </text>
                            
                             <div style={{ position: 'relative', width: 400, height: 400}}>
                                     <div id="Metronome-image" style={{ 
