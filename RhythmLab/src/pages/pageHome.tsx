@@ -1,5 +1,6 @@
 import '.././index.css'
 import Card_button from '../components/card'
+import Header from '../components/header'
 
 export default function PageHome()
 {
@@ -13,10 +14,7 @@ export default function PageHome()
         
         
         <div className='container' id='container'>
-            <div className='header'>
-                <div><h1 className='Titles-font'>Welcome to RhythmLab !</h1></div>
-                <img src='../.././public/Favicon.png' className='favicon'></img>
-            </div>
+            <Header/>
             <div className='Paragraph'>
             <p className='Titles-font' style={{fontSize:30, opacity: 1}}>
                 Bem-vindo ao RhythmLab!
@@ -62,19 +60,19 @@ export default function PageHome()
                 
 
                 <Card_button 
-                            page_name ={'Metronome'}
+                            page_name ={'Metronomo'}
                             url={metronome}
                             image={"../.././public/Hmetronome.jpeg"}
                  />
 
                 <Card_button 
-                            page_name ={'Practice'}
+                            page_name ={'Pratica'}
                             url={practice}
                             image={"../.././public/Hdumbbell.jpeg"}
                  />
 
                 <Card_button 
-                            page_name ={'Theory'}
+                            page_name ={'Teoria'}
                             url={theory}
                             image={"../.././public/Hmusic_theory.jpeg"}
                  />
