@@ -2,6 +2,7 @@ import '.././index.css'
 import { useState } from 'react'
 import Button from '../components/button';
 import Header from '../components/header';
+import Sheet_space_header from '../components/sheet_space_header';
 
 export default function PageMetronome()
 {
@@ -54,36 +55,42 @@ export default function PageMetronome()
 
             
             {/**   Adiciona opções para o usario selecionar bpm que deseja */}
-
-            <div className='row-item-container'>
-             
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(60)}}></button>
-                    <h3 style={{color: 'orange'}}> 60 Bpm </h3>
-                </div>
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(90)}}></button>
-                    <h3 style={{color: 'orange'}}> 90 Bpm </h3>
-                </div>
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(120)}}></button>
-                    <h3 style={{color: 'orange'}}> 120 Bpm </h3>
-                </div>
-
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50 }} onClick={() => {set_time(150)}}></button>
-                    <h3 style={{color: 'orange'}} > 150 Bpm </h3>
-                </div>
-
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(180)}}></button>
-                    <h3 style={{color: 'orange'}}> 180 Bpm </h3>
-                </div>               
+            <div style={{width:'80.5%'}}>
+                    <Sheet_space_header
+                        timeDifferenceColor={'#fa8072'}
+                        displayText={'Escolha uma Bpm!'}
+                    />
             </div>
+            <div className='Paragraph' style={{display: 'flex', flexDirection: 'column', height:'auto', alignItems: 'center', paddingTop: 40, borderTopLeftRadius: 0, borderTopRightRadius: 0}}>
+                <div className='row-item-container'>
+                
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(60)}}></button>
+                        <h3 style={{color: 'orange'}}> 60 Bpm </h3>
+                    </div>
 
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(90)}}></button>
+                        <h3 style={{color: 'orange'}}> 90 Bpm </h3>
+                    </div>
+
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(120)}}></button>
+                        <h3 style={{color: 'orange'}}> 120 Bpm </h3>
+                    </div>
+
+
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <button className='button' style={{width: 100, height: 50 }} onClick={() => {set_time(150)}}></button>
+                        <h3 style={{color: 'orange'}} > 150 Bpm </h3>
+                    </div>
+
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <button className='button' style={{width: 100, height: 50}} onClick={() => {set_time(180)}}></button>
+                        <h3 style={{color: 'orange'}}> 180 Bpm </h3>
+                    </div>               
+                </div>
+            </div>
 
             {/** Div para agrupar o metronomo e o slider para o usuario escolher a bpm que deseja */}
 
@@ -106,7 +113,7 @@ export default function PageMetronome()
             }
             }>
 
-            <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Encontre a sua BPM desejada aqui!</p>
+            <p className='Titles-font' style={{fontSize:30, opacity: 1}}> Ou encontre a sua BPM desejada aqui!</p>
             <input type='range' min={40} max={208} value={time} onChange={handleSliderChange} />
 
             </div>
@@ -124,7 +131,7 @@ export default function PageMetronome()
                         >
 
                             
-                            <text  className='Titles-font' style={{fontSize:30, opacity: 1}}> Current Time = {time} </text>
+                            <text  className='Titles-font' style={{fontSize:30, opacity: 1}}> Bpm Atual = {time} </text>
                            
                             <div style={{ position: 'relative', width: 400, height: 400}}>
                                     <div id="Metronome-image" style={{ 
@@ -152,13 +159,13 @@ export default function PageMetronome()
 
                                 <Button
                                 handleClick ={startTimer}
-                                text={"Start"}
+                                text={"Começar"}
                                 />
                                 : 
 
                                 <Button
                                 handleClick ={stopTimer}
-                                text={"Stop"}
+                                text={"Parar"}
                                 />
                             }
                             

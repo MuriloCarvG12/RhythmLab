@@ -60,13 +60,13 @@ export default function PageHome()
                 
 
                 <Card_button 
-                            page_name ={'Metronomo'}
+                            page_name ={'Metrônomo'}
                             url={metronome}
                             image={"../.././public/Hmetronome.jpeg"}
                  />
 
                 <Card_button 
-                            page_name ={'Pratica'}
+                            page_name ={'Prática'}
                             url={practice}
                             image={"../.././public/Hdumbbell.jpeg"}
                  />

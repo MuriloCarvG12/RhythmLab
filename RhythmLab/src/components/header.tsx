@@ -12,10 +12,10 @@ export default function Header()
 
                     <div style={{display:'flex', flexDirection: 'row', gap: 70}}> 
 
-                            <Link to={'/'}> <h2> Page Home </h2> </Link>
-                            <Link to={'/metronome'}> <h2> Page Metronome </h2> </Link>
-                            <Link to={'/practice'}> <h2> Page Practice </h2> </Link>
-                            <Link to={'/theory'}> <h2> Page Theory </h2> </Link>
+                            <Link className="Header-Link" to={'/'}> <h2> Page Home </h2> </Link>
+                            <Link className="Header-Link" to={'/metronome'}> <h2> Page Metronome </h2> </Link>
+                            <Link className="Header-Link" to={'/practice'}> <h2> Page Practice </h2> </Link>
+                            <Link className="Header-Link" to={'/theory'}> <h2> Page Theory </h2> </Link>
                     </div>
             </div>
         </>

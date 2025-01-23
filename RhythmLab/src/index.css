@@ -294,3 +294,16 @@ html, body { padding: 0; margin: 0; height: 100%; width: 100%; }
   font-weight: 400;
   color: #FFF;
 }
+
+/** Header Style **/
+
+.Header-Link
+{
+  text-decoration: none;
+  color: #ffd4d9;
+}
+
+.Header-Link:hover
+{
+  color: #ff98a4;
+}
