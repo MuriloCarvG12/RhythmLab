@@ -308,11 +308,14 @@ export default function PagePractice()
 
     return (
         <>
-          <div className='container' id='container'  >
+          
+          <div className='container' id='container'>
+          {/** component for the header will load up! */}
+            <Header/>
             <div style={{width: '80%'}}>
 
-                    {/** component for the header will load up! */}
-                    <Header/>
+                   
+                    
 
                     {/** difficulty option gets loaded up! */}
                     {picked_difficulty == 0 

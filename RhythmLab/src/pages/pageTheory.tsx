@@ -11,9 +11,9 @@ export default function PageTheory()
         <>
           <div className="container" style={{height: 'auto', width: '100vh'}}>      
               
-              <div className="header-size"  style={{height: 400, width: '100%'}}>
-                <Header/>
-              </div>
+              
+              <Header/>
+              
 
               <div className='Paragraph'>
 
