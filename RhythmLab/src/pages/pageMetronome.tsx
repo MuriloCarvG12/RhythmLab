@@ -1,7 +1,7 @@
 import '.././index.css'
 import { useState } from 'react'
 import Button from '../components/button';
-
+import Header from '../components/header';
 
 export default function PageMetronome()
 {
@@ -50,10 +50,7 @@ export default function PageMetronome()
         <>
           <div className='container' id='container'>
 
-          <div className='header'>
-                <div><h1 style={{fontFamily: 'sans-serif'}}>Hello there! i am page home</h1></div>
-                <img src='../.././public/Favicon.png' className='favicon'></img>
-            </div>
+          <Header/>
 
             
             {/**   Adiciona opções para o usario selecionar bpm que deseja */}
