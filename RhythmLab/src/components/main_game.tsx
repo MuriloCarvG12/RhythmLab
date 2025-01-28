@@ -5,6 +5,7 @@ interface rhythm
     type: string
     color :string
     time : number
+    image :string
 }
 
 interface main_game_interface
@@ -79,7 +80,7 @@ export default function Main_game({isPlaying, rhythm, toggle_effect, stopRhythm,
                         transition: 'background-color 0.2s ease',
                       }}
                     >
-                      {/* You can display some content here */}
+                      {<img src={`${rhythm[index].image}`} style={{width: '50px', height: '50px'}}/>}
                     </div>
                   ))}
                 </div>
