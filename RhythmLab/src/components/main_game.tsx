@@ -55,6 +55,7 @@ export default function Main_game({isPlaying, rhythm, toggle_effect, stopRhythm,
                     borderColor: '#ff9491',
                     borderStyle: 'solid',
                     borderRadius: 10,
+                    alignItems: 'center'
                   }}
                 >
                   {/* Renders an animation that works to tell the user where they are! */}
@@ -76,6 +77,7 @@ export default function Main_game({isPlaying, rhythm, toggle_effect, stopRhythm,
                       style={{
                         width: '50px',
                         height: '50px',
+                        borderRadius: '100px',
                         backgroundColor: index === current_note ? '#7aeb57' : `${rhythm[index].color}`,
                         transition: 'background-color 0.2s ease',
                       }}
